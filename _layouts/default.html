@@ -18,11 +18,18 @@
         {% endif %}
         {% for beer in type[1] %}
           <article>
-            <header>{{ beer.beer }}
-              <aside>{{ beer.price }}{{ beer.type }}</aside>
+            <header>
+              {{ beer.beer }}
+              <aside class='right'>
+                {{ beer.price }}
+                {{ beer.type }}
+              </aside>
             </header>
-            <section>{{ beer.description }}
-              <aside>{{ beer.abv }}</aside>
+            <section>
+              {{ beer.description }}
+              <aside class='right'>
+                {{ beer.abv }}
+              </aside>
             </section>
           </article>
         {% endfor %}
