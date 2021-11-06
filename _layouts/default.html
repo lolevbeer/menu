@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+  </head>
+  <body>
+    <img src="https://lolev.beer/assets/Lolev_BW.png"/>
+    {% for section in site.data.menu %}
+    <section>
+      <h1>{{ section[0] }}</h1>
+      {% for type in section[1] %}
+      <section>
+        {% if type[0] != empty %}
+          <h2>{{ type[0] }}</h1>
+        {% endif %}
+        {% for beer in type[1] %}
+          <article>
+            <header>{{ beer.beer }}
+              <aside>{{ beer.price }}{{ beer.type }}</aside>
+            </header>
+            <section>{{ beer.description }}
+              <aside>{{ beer.abv }}</aside>
+            </section>
+          </article>
+        {% endfor %}
+      </section>
+      {% endfor %}
+    </section>
+    {% endfor %}
+  </body>
+</html>
