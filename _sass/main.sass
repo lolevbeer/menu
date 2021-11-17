@@ -1,8 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap')
+/* poppins-300 - latin
+@font-face
+  font-family: 'Poppins'
+  font-style: normal
+  font-weight: 300
+  src: local(""), url('../fonts/poppins-v15-latin-300.woff2') format("woff2"), url('../fonts/poppins-v15-latin-300.woff') format("woff")
+
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+
+
+/* poppins-regular - latin
+@font-face
+  font-family: 'Poppins'
+  font-style: normal
+  font-weight: 400
+  src: local(""), url('../fonts/poppins-v15-latin-regular.woff2') format("woff2"), url('../fonts/poppins-v15-latin-regular.woff') format("woff")
+
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+
+
+/* poppins-500 - latin
+@font-face
+  font-family: 'Poppins'
+  font-style: normal
+  font-weight: 500
+  src: local(""), url('../fonts/poppins-v15-latin-500.woff2') format("woff2"), url('../fonts/poppins-v15-latin-500.woff') format("woff")
 
 html
   font-family: 'Poppins', sans-serif
   font-size: 24px
+  font-weight: 300
   letter-spacing: 3px
   margin: 1em
 h1
@@ -14,6 +38,9 @@ h2
   margin: auto
   padding: 0.5em 1em 0.5em 48px
   transform: translateX(-32px)
+h1,
+h2
+  font-weight: 500
 article
   border-bottom: 1px dashed lightgray
   display: block
