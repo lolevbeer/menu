@@ -24,6 +24,7 @@
   src: local(""), url('../fonts/poppins-v15-latin-500.woff2') format("woff2"), url('../fonts/poppins-v15-latin-500.woff') format("woff")
 
 html
+  animation: fadein 2s
   font-family: 'Poppins', sans-serif
   font-size: 24px
   font-weight: 300
@@ -57,4 +58,11 @@ img
   display: block
   margin: auto
   text-align: auto
-  width: 100px
+  width: 140px
+
+@keyframes fadein
+  from
+    opacity: 0
+
+  to
+    opacity: 1
