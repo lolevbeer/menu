@@ -5,9 +5,11 @@
     <meta charset="utf-8">
     <title>{{ page.title }} - {{ site.title }}</title>
     <link rel="stylesheet" href="{{ "assets/css/main.css" }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.5.2/randomColor.js" defer=""></script>
+    <script src="assets/script.js" defer=""></script>
   </head>
   <body>
-    <img src="https://lolev.beer/assets/Lolev_BW.png"/>
+    <img src="https://lolev.beer/images/logo.svg"/>
     {% for section in site.data.menu %}
     <section>
       <h1>{{ section[0] }}</h1>
@@ -16,10 +18,12 @@
         {% if type[0] != empty %}
           <h2>{{ type[0] }}</h1>
         {% endif %}
+        <hide>{% increment index %}</hide>
         {% for beer in type[1] %}
           <article>
             <header>
-              {{ beer.beer }}
+              <!-- {% increment index %} -->
+              {{ beer.name }}
               <aside class='right'>
                 {{ beer.price }}
                 {{ beer.type }}

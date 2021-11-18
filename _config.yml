@@ -5,3 +5,7 @@ title: "Today's Menu" # the name of your site, e.g. ACME Corp.
 sass:
   sass_dir: _sass
   style: compressed
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
