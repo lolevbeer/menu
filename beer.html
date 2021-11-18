@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}" style="font-size: 16px;">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="assets/js/render-beer.js"></script>
+    <link rel="stylesheet" href="assets/css/main.css">
+  </head>
+  <body style="margin: 0 auto; max-width: 800px;">
+    <img src="https://lolev.beer/assets/Lolev_BW.png"/>
+    <div id="app">
+      <h1>our beer</h1>
+      <div class="beers" v-cloak v-for="beer in beers">
+        <h2>{{ beer.name }}</h2><b>{{ beer.style}}</b>
+        <p><i>{{ beer.description }}</i></p>
+      </div>
+    </div>
+  </body>
+</html>
