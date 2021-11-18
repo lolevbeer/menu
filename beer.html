@@ -13,10 +13,10 @@
     <img src="https://lolev.beer/assets/Lolev_BW.png"/>
     <div v-cloak id="app">
       <h1>our beer</h1>
-      <div class="beers" v-for="beer in beers">
-        <h2>{{ beer.name }}</h2><b>{{ beer.style}}</b>
+      <article class="beers" v-for="beer in beers">
+        <h2>{{ beer.name }}</h2><b class="right">{{ beer.style}}</b>
         <p><i>{{ beer.description }}</i></p>
-      </div>
+      </article>
     </div>
   </body>
 </html>
