@@ -18,6 +18,21 @@ $.ajax({
   })
     .fail((e) => console.log(e.status));
 
+fetch("/assets/beer.json")
+  .then(response => {
+     return response.json();
+  })
+  .then(data => {
+    console.log(data.recipes);
+    let app = new Vue({
+      el: "#app-2",
+      data: {
+        recipes: data.recipes
+      }
+    });
+  });
+
+
 // Todo: repalce with a better csv parser.
 let csvToJson = function (csv) {
   let lines = csv.split("\n");

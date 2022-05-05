@@ -9,14 +9,33 @@
     <script src="assets/js/render-beer.js"></script>
     <link rel="stylesheet" href="assets/css/main.css">
   </head>
-  <body style="margin: 0 auto; max-width: 800px;">
-    <img src="https://lolev.beer/images/logo.svg"/>
-    <div v-cloak id="app">
-      <h1>our beer</h1>
-      <article class="beers" v-for="beer in beers">
-        <h2>{{ beer.name }}</h2><b class="right">{{ beer.style}}</b>
-        <p><i>{{ beer.description }}</i></p>
-      </article>
-    </div>
+  <body style="margin: 0 auto; max-width: 90vw;">
+    <img src="https://lolev.beer/assets/Lolev_BW.png"/>
+    <section class="multi-column">
+      <div v-cloak id="app">
+        <h1>our beer</h1>
+        <article style="text-align: center" class="beers" v-for="beer in beers">
+          <h2>{{ beer.name }}</h2>
+          <section>
+            <p><i>{{ beer.description }}</i></p>
+            <p><b>{{ beer.style }}</b></p>
+            <div class="hand">
+              <img class="hand-icon" src="https://lolev.beer/assets/Lolev_BW.png">
+              <div style="backdrop-filter: blur(.1px)" class="beer-glass"></div>
+            </div>
+          </section>
+        </article>
+      </div>
+      <div v-cloak id="app-2">
+        <h1>in development</h1>
+        <article style="text-align: center" class="beers" v-for="recipe in recipes">
+          <h2>{{ recipe.title }}</h2>
+          <section>
+            <p><i>{{ recipe.stylename }}</i></p>
+            <p><b>abv </b>{{ recipe.abv }}% <b>ibu</b> {{ recipe.ibutinseth }}</p>
+          </section>
+        </article>
+      </div>
+    </section>
   </body>
 </html>
