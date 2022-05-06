@@ -4,8 +4,8 @@ beer:
       type: Bavarian Lager
       description: 16oz
       abv: 5.2%
-    - name: Dry Hopped Kolsch
-      type: Kolsch Style Ale
+    - name: Dry Hopped Kölsch
+      type: Kölsch Style Ale
       description: 12oz
       abv: 5.0%
     - name: Terra
