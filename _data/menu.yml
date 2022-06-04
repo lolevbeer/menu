@@ -1,17 +1,20 @@
 beer:
   '':
-    - name: Zwickelbeir
-      type: Bavarian Lager
-      description: 16oz
+    - name: Revive
+      type: Hard Seltzer
       abv: 5.2%
-    - name: Dry Hopped Kölsch
-      type: Kölsch Style Ale
-      description: 12oz
-      abv: 5.0%
+    - name: Vital
+      type: Imperial IPA
+      abv: 8.5%
+    - name: Pearl
+      type: Saison
+      abv: 6.2%
     - name: Terra
       type: Saison
-      description: 12oz
       abv: 6.5%
+    - name: Cove
+      type: Lager
+      abv: 5%
 
 # to go:
 #   '':
