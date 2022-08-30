@@ -1,20 +1,29 @@
 beer:
   '':
-    - name: Revive
-      type: Hard Seltzer
-      abv: 5.2%
-    - name: Vital
-      type: Imperial IPA
-      abv: 8.5%
-    - name: Pearl
-      type: Saison
-      abv: 6.2%
     - name: Terra
       type: Saison
+      description: "Our house Saison dashed with lemongrass. Flavor profile of orange zest, marmalade, and grapefruit. Floral and slightly spicy."
       abv: 6.5%
-    - name: Cove
-      type: Lager
-      abv: 5%
+    - name: Revive
+      type: Hard Seltzer
+      description: "We ferment this seltzer like we would a beer and then dryhop it for a flavor profile unlike any other seltzer. Notes of fresh lemon, berry, and fresh pineapple."
+      abv: 5.2%
+    - name: Imperial IPA
+      type: Saison
+      description: "If you like it double dryhopped, then you will like this one, we just keep the hopcannon constantly filled with fresh hops. Notes of lychee, berry, and citrus with earthly undertones. Aroma is slightly piney with tropical fruit."
+      abv: 8.5%
+    - name: Torrent
+      type: IPA
+      description: "Our house IPA. Notes of orange citrus, grapefruit and pine, an intense citrus aroma with pronounced lemon undertones."
+      abv: 6.2%
+    - name: Obsidian
+      type: Imperial Stout
+      description: "Dark chocolate and toasted caramel layered on a blackberry cola. This one is finished in steel."
+      abv: 9.9%
+    - name: Soleil
+      type: Wheat Saison
+      description: "We love Saisons at Lolev, but this one is different than Terra. Big citrus notes reminiscent of a mimosa, light floral undertones with very subtle notes of zested lime."
+      abv: 7.7%   
 
 # to go:
 #   '':
