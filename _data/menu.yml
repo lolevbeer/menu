@@ -8,8 +8,8 @@ beer:
       type: Hard Seltzer
       description: "We ferment this seltzer like we would a beer and then dryhop it for a flavor profile unlike any other seltzer. Notes of fresh lemon, berry, and fresh pineapple."
       abv: 5.2%
-    - name: Imperial IPA
-      type: Saison
+    - name: Secrets
+      type: DIPA
       description: "If you like it double dryhopped, then you will like this one, we just keep the hopcannon constantly filled with fresh hops. Notes of lychee, berry, and citrus with earthly undertones. Aroma is slightly piney with tropical fruit."
       abv: 8.5%
     - name: Torrent
@@ -23,13 +23,4 @@ beer:
     - name: Soleil
       type: Wheat Saison
       description: "We love Saisons at Lolev, but this one is different than Terra. Big citrus notes reminiscent of a mimosa, light floral undertones with very subtle notes of zested lime."
-      abv: 7.7%   
-
-# to go:
-#   '':
-#     - beer: 'ONSITE #1'
-#       price: $13
-#     - beer: 'ONSITE #2'
-#       price: $15
-#     - beer: 'ONSITE #6'
-#       price: $20
+      abv: 7.7%
