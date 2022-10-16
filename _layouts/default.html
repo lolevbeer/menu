@@ -12,7 +12,6 @@
     <img src="https://lolev.beer/images/logo.svg"/>
     {% for section in site.data.menu %}
     <section>
-      <h1>{{ section[0] }}</h1>
       {% for type in section[1] %}
       <section>
         {% if type[0] != empty %}
@@ -30,9 +29,9 @@
             <h4>
               {{ beer.abv }}
             </h4>
-            <section>
+            <!-- <section>
               {{ beer.description }}
-            </section>
+            </section> -->
           </article>
         {% endfor %}
       </section>
