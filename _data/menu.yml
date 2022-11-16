@@ -13,7 +13,7 @@ beer:
     - name: Array
       type: Pale Ale
       abv: 4.9%
-    - name: Scylaa
+    - name: Scylla
       type: Imperial Stout
       abv: 10.5%
     # - name: Soleil
