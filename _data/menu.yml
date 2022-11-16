@@ -6,19 +6,15 @@ beer:
     #   abv: 6.5%
     - name: Revive
       type: Hard Seltzer
-      description: "We ferment this seltzer like we would a beer and then dryhop it for a flavor profile unlike any other seltzer. Notes of fresh lemon, berry, and fresh pineapple."
       abv: 4.2%
     - name: Tides
-      type: Double India Pale Ale
-      description: "If you like it double dryhopped, then you will like this one, we just keep the hopcannon constantly filled with fresh hops. Notes of lychee, berry, and citrus with earthly undertones. Aroma is slightly piney with tropical fruit."
+      type: India Pale Ale
       abv: 6.9%
     - name: Array
       type: Pale Ale
-      description: "Our house IPA. Notes of orange citrus, grapefruit and pine, an intense citrus aroma with pronounced lemon undertones."
       abv: 4.9%
     - name: Scylaa
       type: Imperial Stout
-      description: "Dark chocolate and toasted caramel layered on a blackberry cola. This one is finished in steel."
       abv: 10.5%
     # - name: Soleil
     #   type: Wheat Saison
