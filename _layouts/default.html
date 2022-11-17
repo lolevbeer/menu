@@ -6,9 +6,11 @@
     <title>{{ page.title }} - {{ site.title }}</title>
     <link rel="stylesheet" href="{{ "assets/css/main.css" }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.5.2/randomColor.js" defer=""></script>
-    <script src="assets/script.js" defer=""></script>
+    {% if page.js %}
+      <script src="assets/script.js" defer=""></script>
+    {% endif %}
   </head>
-  <body>
+  <body class="{{ page.class }}">
     <img src="https://lolev.beer/images/logo.svg"/>
     {% for section in site.data.menu %}
       {% for type in section[1] %}
