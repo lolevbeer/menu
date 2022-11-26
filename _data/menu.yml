@@ -4,15 +4,15 @@ beer:
     #   type: Saison
     #   description: "Our house Saison dashed with lemongrass. Flavor profile of orange zest, marmalade, and grapefruit. Floral and slightly spicy."
     #   abv: 6.5%
-    - name: Revive
-      type: Hard Seltzer
-      abv: 4.2%
     - name: Tides
       type: India Pale Ale
       abv: 6.9%
     - name: Array
       type: Pale Ale
       abv: 4.9%
+    - name: Revive
+      type: Hard Seltzer
+      abv: 4.2%
     - name: Scylla
       type: Imperial Stout
       abv: 10.5%
