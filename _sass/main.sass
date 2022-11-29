@@ -17,7 +17,6 @@
   src: local(""), url('../fonts/poppins-v15-latin-500.woff2') format("woff2"), url('../fonts/poppins-v15-latin-500.woff') format("woff")
 
 html
-  animation: fadein .75s
   font-family: 'Poppins', sans-serif
   font-size: 18px
   font-weight: 300
@@ -94,6 +93,7 @@ hide
 // content blocks
 article
   height: 40vh
+  transition: color 5s fade-in
 header
   text-transform: uppercase
 aside
@@ -115,6 +115,10 @@ body
     overflow-y: hidden
 img
   filter: invert(1)
+
+.logo
+  height: 102px
+  width: 100px
 
 // Beer list
 .multi-column
