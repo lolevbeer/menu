@@ -21,18 +21,15 @@
         <hide>{% increment index %}</hide>
         {% for beer in type[1] %}
           <article>
-            <!-- {% increment index %} -->
             <h2>{{ beer.name }}</h2>
-            <h3>
-              <!-- {{ beer.price }} -->
-              {{ beer.type }}
-            </h3>
-            <h4>
-              {{ beer.abv }}
-            </h4>
-            <!-- <section>
-              {{ beer.description }}
-            </section> -->
+            <h3>{{ beer.type }}</h3>
+            <h4>{{ beer.abv }}</h4>
+            {% if page.description %}
+              <p> {{ beer.description }} </p>
+            {% endif %}
+            {% if page.price %}
+              <p> {{ beer.price }} </p>
+            {% endif %}
           </article>
         {% endfor %}
       </section>

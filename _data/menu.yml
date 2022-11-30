@@ -1,22 +1,22 @@
 beer:
   '':
-    # - name: Terra
-    #   type: Saison
-    #   description: "Our house Saison dashed with lemongrass. Flavor profile of orange zest, marmalade, and grapefruit. Floral and slightly spicy."
-    #   abv: 6.5%
     - name: Tides
       type: India Pale Ale
+      description: "Grapefruit with light berry undertone, earthy. Blueberry and Orange aroma."
       abv: 6.9%
+      price: '$7.50'
     - name: Array
       type: Pale Ale
+      description: "Refreshing Grapefruit and Pineapple. Subtle aroma of lemon."
       abv: 4.9%
+      price: '$6.50'
     - name: Revive
       type: Hard Seltzer
+      description: "Fermented on champagne yeast with hops."
       abv: 4.2%
+      price: '$6.50'
     - name: Scylla
       type: Imperial Stout
+      description: "Dark chocolate and toasted caramel layered on a blackberry cola."
       abv: 10.5%
-    # - name: Soleil
-    #   type: Wheat Saison
-    #   description: "We love Saisons at Lolev, but this one is different than Terra. Big citrus notes reminiscent of a mimosa, light floral undertones with very subtle notes of zested lime."
-    #   abv: 7.7%
+      price: '$8'
