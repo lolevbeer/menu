@@ -21,7 +21,7 @@
         <hide>{% increment index %}</hide>
         {% for beer in type[1] %}
           <article>
-            <h2>{{ beer.name }}</h2>
+            <h2>{{ beer.name }}{% if beer.gluten-free %}<img class="gf" src="/assets/gluten-free.svg"></img>{% endif %}</h2>
             <h3>{{ beer.type }}</h3>
             <h4>{{ beer.abv }}</h4>
             {% if page.description %}

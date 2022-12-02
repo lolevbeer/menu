@@ -15,6 +15,7 @@ beer:
       description: "Fermented on champagne yeast with hops."
       abv: 4.2%
       price: '$6.50'
+      gluten-free: true
     - name: Scylla (Sky·La)
       type: Imperial Stout
       description: "Dark chocolate and toasted caramel layered on a blackberry cola."
