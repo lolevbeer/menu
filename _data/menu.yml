@@ -2,22 +2,27 @@ beer:
   '':
     - name: Tides
       type: India Pale Ale
-      description: "Grapefruit with light berry undertone, earthy. Blueberry and Orange aroma."
+      description: Grapefruit with light berry undertone, earthy. Blueberry and Orange aroma.
       abv: 6.9%
       price: $7.50
     - name: Array
       type: Pale Ale
-      description: "Refreshing Grapefruit and Pineapple. Subtle aroma of lemon."
+      description: Refreshing Grapefruit and Pineapple. Subtle aroma of lemon.
       abv: 4.9%
       price: $6.50
     - name: Revive
-      type: Hopped Seltzer
-      description: "Fermented on champagne yeast with hops."
+      type: Hard Seltzer
+      description: Fermented on champagne yeast with hops.
       abv: 4.2%
-      price: $5
+      price: $6.50
       gluten-free: true
     - name: Scylla (Sky·La)
       type: Imperial Stout
-      description: "Dark chocolate and toasted caramel layered on a blackberry cola."
+      description: Dark chocolate and toasted caramel layered on a blackberry cola.
       abv: 10.5%
       price: $8
+    - name: Soleil (So·Lay)
+      type: Saison
+      description: Dry orange, mimosa-esque. Floral notes and funky.
+      abv: 7%
+      price: $7
