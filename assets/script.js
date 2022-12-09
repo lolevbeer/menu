@@ -1,7 +1,8 @@
 let beers = document.querySelectorAll('section article'),
-    row1 = beers.length / 2,
+    row1 = Math.ceil(beers.length / 2),
     percent = 1 / row1 * 100;
 
+console.log(row1)
 for (let beer of beers) {
   beer.style.flexBasis = percent +"%";
 }
