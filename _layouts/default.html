@@ -11,7 +11,11 @@
     {% endif %}
   </head>
   <body class="{{ page.class }}">
-    <img class="logo" src="https://lolev.beer/images/logo.svg"/>
+    <header>
+      <h1>Lolev</h1>
+      <img class="logo" src="https://lolev.beer/images/logo.svg"/>
+      <h1>Beer</h1>
+    </header>
     {% for section in site.data.menu %}
       {% for type in section[1] %}
       <section>
