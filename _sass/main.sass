@@ -78,6 +78,15 @@ p
   font-size: 1.2em
   // line-height: 1em
 
+body:not(.kiosk)
+  h1
+    display: none !important
+.kiosk
+  header img
+    left: calc(50% + -50px)
+    position: absolute
+
+
 section
   display: flex
   flex-flow: column
@@ -131,9 +140,6 @@ img
   width: 75px
 
 header
-  img
-    left: calc(50% + -50px)
-    position: absolute
   h1,
   img
     display: inline
