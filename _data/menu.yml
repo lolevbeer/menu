@@ -28,6 +28,6 @@ beer:
       price: $7
     - name: Secrets
       type: Double IPA
-      description: Passion fruit, pine, apricot, and orange zest. Dank pine and blueberry aroma.
+      description: Passionfruit, pine, apricot, and orange zest. Dank pine and blueberry aroma.
       abv: 7.8%
       price: $8
