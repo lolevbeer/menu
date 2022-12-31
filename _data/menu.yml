@@ -2,12 +2,12 @@ beer:
   '':
     - name: Tides
       type: India Pale Ale
-      description: Grapefruit with light berry undertone, earthy. Blueberry and Orange aroma.
+      description: Grapefruit with light berry undertone, earthy. Blueberry and orange aroma.
       abv: 6.9%
       price: $7.50
     - name: Array
       type: Pale Ale
-      description: Refreshing Grapefruit and Pineapple. Subtle aroma of lemon.
+      description: Refreshing grapefruit and pineapple. Subtle aroma of lemon.
       abv: 4.9%
       price: $6.50
     - name: Revive
@@ -26,3 +26,8 @@ beer:
       description: Dry orange, mimosa-esque. Floral notes and funky.
       abv: 6.9%
       price: $7
+    - name: Secrets
+      type: Double IPA
+      description: Passion fruit, pine, apricot, and orange zest. Dank pine and blueberry aroma.
+      abv: 7.8%
+      price: $8
