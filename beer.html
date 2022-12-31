@@ -9,9 +9,9 @@
     <script src="assets/js/render-beer.js"></script>
     <link rel="stylesheet" href="assets/css/main.css">
   </head>
-  <body style="margin: 0 auto; max-width: 90vw;">
-    <img src="https://lolev.beer/assets/Lolev_BW.png"/>
-    <section class="multi-column">
+  <body class="{{ page.class }}">
+    <img src="https://lolev.beer/images/logo.svg"/>
+    <section>
       <div v-cloak id="app">
         <h1>our beer</h1>
         <article style="text-align: center" class="beers" v-for="beer in beers">
