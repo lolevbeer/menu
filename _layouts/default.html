@@ -5,10 +5,8 @@
     <meta charset="utf-8">
     <title>{{ page.title }} - {{ site.title }}</title>
     <link rel="stylesheet" href="{{ "assets/css/main.css" }}">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.5.2/randomColor.js" defer=""></script>
-    {% if page.js %}
-      <script src="assets/script.js" defer=""></script>
-    {% endif %}
   </head>
   <body class="{{ page.class }}">
     <header>
@@ -16,28 +14,16 @@
       <img class="logo" src="https://lolev.beer/images/logo.svg"/>
       <h1>Beer</h1>
     </header>
-    {% for section in site.data.menu %}
-      {% for type in section[1] %}
-      <section>
-        {% if type[0] != empty %}
-          <h2>{{ type[0] }}</h1>
-        {% endif %}
-        <hide>{% increment index %}</hide>
-        {% for beer in type[1] %}
-          <article>
-            <h2>{{ beer.name }}{% if beer.gluten-free %}<img class="gf" src="/assets/gluten-free.svg"></img>{% endif %}</h2>
-            <h3>{{ beer.type }}</h3>
-            <h4>{{ beer.abv }}</h4>
-            {% if page.description %}
-              <p> {{ beer.description }} </p>
-            {% endif %}
-            {% if page.price %}
-              <p> {{ beer.price }} </p>
-            {% endif %}
-          </article>
-        {% endfor %}
-      </section>
-      {% endfor %}
-    {% endfor %}
+    <section v-cloak id="app">
+      <article class="beers" v-for="beer in beers" >
+        <h2>${ beer.name }<img v-if="beer.glutenFree" class="gf" src="./assets/gluten-free.svg"></img></h2>
+        <h3>${ beer.type }</h3>
+        <h4 class="percent">${ beer.abv }</h4>
+        {% if page.description %}<p>${ beer.description }</p>{% endif %}
+        {% if page.price %}<p>${ beer.price }</p>{% endif %}
+      </article>
+    </section>
   </body>
+  {% if page.refresh %}<script src="/assets/js/render-beer-persist.js" defer=""></script>
+  {% else %}<script src="/assets/js/render-beer.js" defer=""></script>{% endif %}
 </html>

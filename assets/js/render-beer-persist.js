@@ -13,18 +13,20 @@ new Vue({
         .then(data =>
           this.beers = data
         );
-    },
-    changeColors: function () {
-      let items = document.querySelectorAll('article');
-      for (let i = 0; i < items.length; i++) {
-        items[i].style.color = randomColor({ luminosity: "light" });
-      }
     }
   },
   mounted: function () {
     this.loadData();
     setInterval(function () {
-      this.changeColors();
+      this.loadData();
+      let items = document.querySelectorAll('article'),
+          columnSize = Math.ceil(items.length / 2),
+          percent = 1 / columnSize * 100;
+      for (let i = 0; i < items.length; i++) {
+        items[i].style.flexBasis = percent +"%";
+        items[i].style.color = randomColor({ luminosity: "light" });
+      }
     }.bind(this), 5000);
+
   }
 });
