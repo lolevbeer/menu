@@ -6,7 +6,10 @@ new Vue({
   },
   methods: {
     loadData: function () {
-      fetch('https://lolev.beer/menu.json')
+      let rLk = Math.random().toString(36).slice(2, 4);
+      let rLv = Math.random().toString(36).slice(2, 4);
+      let cacheBustingArg = `https://lolev.beer/menu.json?${rLk}=${rLv}`;
+      fetch(cacheBustingArg)
         .then(response =>
           response.json()
         )
@@ -17,6 +20,9 @@ new Vue({
   },
   mounted: function () {
     this.loadData();
+    window.addEventListener('error', function(e) {
+      location.reload();
+    }, true);
     setInterval(function () {
       this.loadData();
       let items = document.querySelectorAll('article'),
