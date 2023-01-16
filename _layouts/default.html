@@ -22,7 +22,11 @@
     </header>
     <section v-cloak id="app">
       <article class="beers" v-for="beer in beers" >
-        <h2>${ beer.name }<img v-if="beer.glutenFree" class="gf" src="./assets/gluten-free.svg"></img></h2>
+        <h2>
+          ${ beer.name }
+          <span v-if="beer.pronunciation" class="pronunciation">${ beer.pronunciation }</span>
+          <img v-if="beer.glutenFree" class="gf" src="./assets/gluten-free.svg"></img>
+        </h2>
         <h3>${ beer.type }</h3>
         <h4 class="percent">${ beer.abv }</h4>
         {% if page.description %}<p>${ beer.description }</p>{% endif %}
