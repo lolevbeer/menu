@@ -17,7 +17,9 @@
   <body class="{{ page.class }}">
     <header>
       <img class="logo" src="https://lolev.beer/images/logo.svg"/>
-      <img class="qr" src="/assets/qr-lolev-beer-section.svg"/>
+      {% if page.class == "kiosk" %}
+        <img class="qr" src="/assets/qr-lolev-beer-section.svg"/>
+      {% endif %}
     </header>
     <section v-cloak id="app">
       <article class="beers" v-if="beer.tap" v-for="beer in beers">
