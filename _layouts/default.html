@@ -16,21 +16,30 @@
   </head>
   <body class="{{ page.class }}">
     <header>
-      <h1>Lolev</h1>
       <img class="logo" src="https://lolev.beer/images/logo.svg"/>
-      <h1>Beer</h1>
+      <img class="qr" src="/assets/qr-lolev-beer-section.svg"/>
     </header>
     <section v-cloak id="app">
-      <article class="beers" v-for="beer in beers" >
-        <h2>
-          ${ beer.name }
-          <span v-if="beer.pronunciation" class="pronunciation">${ beer.pronunciation }</span>
+      <article class="beers" v-if="beer.tap" v-for="beer in beers">
+        <span class="beer-name">
+          {% if page.class == "kiosk" %}
+            ${ beer.tap }
+          {% endif %}
+          <a :href="'https://lolev.beer/beer/' + beer.name.toLowerCase().trim()">
+            ${ beer.name }
+          </a>
+          <!-- <span v-if="beer.pronunciation" class="pronunciation">${ beer.pronunciation }</span> -->
           <img v-if="beer.glutenFree" class="gf" src="./assets/gluten-free.svg"></img>
-        </h2>
-        <h3>${ beer.type }</h3>
-        <h4 class="percent">${ beer.abv }</h4>
-        {% if page.description %}<p>${ beer.description }</p>{% endif %}
-        {% if page.price %}<p>${ beer.price }</p>{% endif %}
+        </span>
+        <span class="beer-style">${ beer.type }</span>
+        <span class="percent">${ beer.abv }</span>
+        <span class="beer-info">
+
+          {% if page.description %}<p>${ beer.description }</p>{% endif %}
+          {% if page.price %}
+            <span class="price">${ beer.price }</span>
+          {% endif %}
+        </span>
       </article>
     </section>
   </body>

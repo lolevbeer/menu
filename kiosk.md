@@ -2,7 +2,7 @@
 layout: default
 title: Beer
 refresh: true
-description: true
+description: false
 price: true
 class: kiosk
 ---

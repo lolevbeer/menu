@@ -1,34 +1,20 @@
-@font-face
-  font-family: 'Poppins'
-  font-style: normal
-  font-weight: 300
-  src: local(""), url('../fonts/poppins-v15-latin-300.woff2') format("woff2"), url('../fonts/poppins-v15-latin-300.woff') format("woff")
-
-@font-face
-  font-family: 'Poppins'
-  font-style: normal
-  font-weight: 400
-  src: local(""), url('../fonts/poppins-v15-latin-regular.woff2') format("woff2"), url('../fonts/poppins-v15-latin-regular.woff') format("woff")
-
-@font-face
-  font-family: 'Poppins'
-  font-style: normal
-  font-weight: 500
-  src: local(""), url('../fonts/poppins-v15-latin-500.woff2') format("woff2"), url('../fonts/poppins-v15-latin-500.woff') format("woff")
-
 html
   font-family: 'Poppins', sans-serif
-  font-size: 18px
   font-weight: 300
   letter-spacing: 3px
 
 body
   position: relative
   font-family: Poppins, sans-serif
+  font-size: 4em
+  font-weight: 400
   letter-spacing: 2px
-  line-height: 1.5em
-  margin: 2em
-  text-align: center
+  line-height: 1.7em
+  margin: 0
+  text-align: left
+
+#app
+  margin: 0 50px
 
 *
   transition: all .01s ease
@@ -62,17 +48,12 @@ h3
 h4
   font-size: 1.5em
 
-article > *:nth-child(even)
-  color: white !important
+article > *:not(.beer-name)
+  // color: white !important
 
 a
-  color: #333
-  font-weight: 600
-  text-decoration: underline
-  text-decoration-color: transparent
-  transition: text-decoration-color .4s ease
-  &:hover
-    text-decoration-color: initial
+  color: inherit
+  text-decoration: none
 
 p
   font-family: Lora, serif
@@ -82,25 +63,17 @@ p
 body:not(.kiosk)
   h1
     display: none !important
-.kiosk
-  header img
-    left: calc(50% + -50px)
-    position: absolute
-
 
 section
-  display: flex
-  flex-flow: column
   margin-bottom: 3em
   .kiosk &
-    flex-flow: wrap
+    // flex-flow: wrap
 hide
   display: none
 
 // content blocks
 article
-  flex-basis: 50%
-  height: 40vh
+  margin: .1em
   position: relative
   transition: color 1s ease
   p
@@ -109,6 +82,7 @@ article
   margin-left: 4em
   margin-right: 4em
 header
+  text-align: center
   text-transform: uppercase
 aside
   display: inline-block
@@ -132,20 +106,47 @@ img
 .logo
   height: 102px
   width: 100px
+.qr
+  position: absolute
+  right: 50px
 
-.percent:after
-  content: '%'
+.beer-name
+  font-weight: 600
+  letter-spacing: .5em
+  text-transform: uppercase
+
+.beer-style
+  background: white
+  border-radius: 60px
+  color: black !important
+  font-size: .5em
+  padding: 10px 25px
+  vertical-align: top
+
+.percent
+  background: white
+  border-radius: 40px
+  color: black
+  font-size: .5em
+  padding: 10px 25px
+  vertical-align: top
+  &:after
+    content: '% abv'
+    font-size: .75em
 
 .gf
   display: inline
   margin: 0
   padding: 0
-  position: absolute
   top: 20px
+  transform: translateX(-40px)
   width: 75px
 
 .pronunciation:before
   content: ' - '
+
+.beer-info
+  float: right
 
 header
   h1,
