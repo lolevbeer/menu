@@ -73,14 +73,18 @@ hide
 
 // content blocks
 article
+  color: black
   margin: .1em
   position: relative
-  transition: color 1s ease
+  transition: color 250ms ease
   p
     line-height: 2em
-.kiosk article p
-  margin-left: 4em
-  margin-right: 4em
+.kiosk
+  article
+    transition: color 1s ease
+    p
+      margin-left: 4em
+      margin-right: 4em
 header
   text-align: center
   text-transform: uppercase
@@ -134,7 +138,7 @@ img
   padding: 10px 25px
   vertical-align: top
   &:after
-    content: '% abv'
+    content: '%'
     font-size: .75em
     vertical-align: bottom
 
