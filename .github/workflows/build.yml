@@ -22,7 +22,7 @@ jobs:
         pwd
         ls
         timestamp=$(date +%s)
-        jq --arg timestamp $timestamp '. + {timestamp: $timestamp}' json/menu.json > output.json
+        jq --arg timestamp $timestamp '. + {timestamp: $timestamp}' json/menu.json > json/output.json
       env:
         timestamp: ${{ env.timestamp }}
 
@@ -30,4 +30,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: output.json
-        path: _data/output.json
+        path: json/output.json
