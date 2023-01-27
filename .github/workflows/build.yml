@@ -1,0 +1,27 @@
+name: Add Timestamp
+
+on:
+  push:
+    paths:
+      - 'menu.json'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Add timestamp
+      run: |
+        timestamp=$(date +%s)
+        jq --arg timestamp $timestamp '. + {timestamp: $timestamp}' input.json > output.json
+      env:
+        timestamp: ${{ env.timestamp }}
+
+    - name: Upload output
+      uses: actions/upload-artifact@v2
+      with:
+        name: output.json
+        path: output.json
