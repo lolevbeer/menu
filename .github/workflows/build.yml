@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'menu.json'
+      - '_site/menu.json'
 
 jobs:
   build:
@@ -16,7 +17,7 @@ jobs:
     - name: Add timestamp
       run: |
         timestamp=$(date +%s)
-        jq --arg timestamp $timestamp '. + {timestamp: $timestamp}' input.json > output.json
+        jq --arg timestamp $timestamp '. + {timestamp: $timestamp}' menu.json > output.json
       env:
         timestamp: ${{ env.timestamp }}
 
