@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '_data/input.json'
+      - '.github/workflows/build.yml'
 
 jobs:
   build:
