@@ -3,8 +3,7 @@ name: Add Timestamp
 on:
   push:
     paths:
-      - 'menu.json'
-      - '_site/menu.json'
+      - '_data/input.json'
 
 jobs:
   build:
@@ -14,10 +13,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Setup jq
+      uses: actions/setup-jq@v1
+
     - name: Add timestamp
       run: |
         timestamp=$(date +%s)
-        jq --arg timestamp $timestamp '. + {timestamp: $timestamp}' menu.json > output.json
+        jq --arg timestamp $timestamp '. + {timestamp: $timestamp}' _data/input.json > _data/output.json
       env:
         timestamp: ${{ env.timestamp }}
 
@@ -25,4 +27,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: output.json
-        path: output.json
+        path: _data/output.json
