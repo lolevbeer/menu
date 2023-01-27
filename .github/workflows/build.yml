@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Setup jq
-      uses: actions/setup-jq@v1
+      uses: sergeysova/jq-action@v2
 
     - name: Add timestamp
       run: |
