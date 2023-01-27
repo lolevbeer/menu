@@ -22,7 +22,7 @@ jobs:
         pwd
         ls
         timestamp=$(date +%s)
-        jq --arg timestamp $timestamp '. + {timestamp: $timestamp}' _data/menu.json > _data/output.json
+        jq --arg timestamp $timestamp '. + {timestamp: $timestamp}' json/menu.json > output.json
       env:
         timestamp: ${{ env.timestamp }}
 
