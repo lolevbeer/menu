@@ -1,4 +1,11 @@
 ---
 layout: null
 ---
-{{ site.data.menu | jsonify }}
+
+{% assign menu = site.data.menu %}
+
+{% capture date %}{'beer':'{{site.time}}'}{%  endcapture %}
+
+{{date | jsonify }}
+
+{{ menu | append: date | jsonify }}
