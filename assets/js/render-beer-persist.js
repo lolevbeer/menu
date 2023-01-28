@@ -16,7 +16,7 @@ new Vue({
     async checkForRefresh() {
       const response = await fetch(`/timestamp.json`);
       const data = await response.json();
-      let timestamp = data[0].timestamp;
+      let timestamp = data.timestamp;
       let lastRefresh = localStorage.getItem("lastRefresh");
       if (timestamp != lastRefresh) {
         location.reload()
