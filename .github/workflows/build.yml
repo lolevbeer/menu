@@ -1,33 +1,36 @@
-name: Add Timestamp
+name: Build and Deploy to Github Pages
 
 on:
   push:
-    paths:
-      - '_data/input.json'
-      - '.github/workflows/build.yml'
+    branches:
+      - master  # Here source code branch is `master`, it could be other branch
 
 jobs:
-  build:
+  build_and_deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      # - name: Install dependencies
+      #   run: sudo apt-get install libvips-tools liblcms2
 
-    - name: Setup jq
-      uses: sergeysova/jq-action@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: Add timestamp
-      run: |
-        pwd
-        ls
-        timestamp=$(date +%s)
-        jq --arg timestamp $timestamp '. + {timestamp: $timestamp}' json/menu.json > json/output.json
-      env:
-        timestamp: ${{ env.timestamp }}
+      - name: Setup jq
+        uses: sergeysova/jq-action@v2
 
-    - name: Upload output
-      uses: actions/upload-artifact@v2
-      with:
-        name: output.json
-        path: json/output.json
+      # Use GitHub Actions' cache to cache dependencies on servers
+      - uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
+      # Use GitHub Deploy Action to build and deploy to Github
+      - uses: jeffreytse/jekyll-deploy-action@v0.3.1
+        with:
+          provider: 'github'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          cname: ${{ secrets.CNAME }}
+          pre_build_commands: |
+            jq --arg timestamp $timestamp '. + {timestamp: $timestamp}' > timestamp.json

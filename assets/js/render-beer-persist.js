@@ -5,34 +5,40 @@ new Vue({
     beers: []
   },
   methods: {
-    loadData: function () {
+    async loadData() {
       let rLk = Math.random().toString(36).slice(2, 4);
       let rLv = Math.random().toString(36).slice(2, 4);
-      let cacheBustingArg = `https://lolev.beer/menu.json?${rLk}=${rLv}`;
-      fetch(cacheBustingArg)
-        .then(response =>
-          response.json()
-        )
-        .then(data =>
-          this.beers = data
-        );
-    }
-  },
-  mounted: function () {
-    this.loadData();
-    window.addEventListener('error', function(e) {
-      location.reload();
-    }, true);
-    setInterval(function () {
-      this.loadData();
-      let items = document.querySelectorAll('article'),
-          columnSize = Math.ceil(items.length / 2),
-          percent = 1 / columnSize * 100;
+      const response = await fetch(`https://lolev.beer/menu.json?${rLk}=${rLv}`);
+      const data = await response.json();
+      this.beers = data;
+      this.$nextTick(this.changeColors);
+    },
+    async checkForRefresh() {
+      const response = await fetch(`/timestamp.json`);
+      const data = await response.json();
+      let timestamp = data[0].timestamp;
+      let lastRefresh = localStorage.getItem("lastRefresh");
+      if (timestamp != lastRefresh) {
+        location.reload()
+        localStorage.setItem("lastRefresh", timestamp);
+      }
+    },
+    changeColors() {
+      let items = document.querySelectorAll('article');
       for (let i = 0; i < items.length; i++) {
-        items[i].style.flexBasis = percent +"%";
         items[i].style.color = randomColor({ luminosity: "light" });
       }
-    }.bind(this), 5000);
-
+    },
+    refresh() {
+      window.location.reload(true);
+    }
+  },
+  mounted() {
+    this.loadData();
+    this.intervalId = setInterval(() => {
+      this.loadData();
+      this.checkForRefresh();
+    }, 5000);
+    window.addEventListener('error', () => location.reload(), true);
   }
 });
