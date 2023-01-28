@@ -13,12 +13,42 @@
     <link rel="stylesheet" href="{{ "assets/css/main.css" }}">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.5.2/randomColor.js" defer=""></script>
+    <script src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
   </head>
   <body class="{{ page.class }}">
     <header>
-      <img class="logo" src="https://lolev.beer/images/logo.svg"/>
       {% if page.class == "kiosk" %}
-        <img class="qr" src="/assets/qr-lolev-beer-section.svg"/>
+        <div id="qr"></div>
+        <script type="text/javascript">
+        const qrCode = new QRCodeStyling({
+            type: "svg",
+            data: "https://lolev.beer#beer",
+            image: "https://lolev.beer/images/logo.svg",
+            width: 400,
+            height: 400,
+            dotsOptions: {
+              color: "#FFF",
+              type: "extra-rounded"
+            },
+            backgroundOptions: {
+              color: "#000",
+            },
+            imageOptions: {
+              crossOrigin: "anonymous",
+              margin: 20,
+              imageSize: 0.4,
+              margin: 10,
+            },
+            qrOptions: {
+              typeNumber: 0,
+              errorCorrectionLevel: 'H',
+            },
+            cornersSquareOptions: {
+              type: 'dots'
+            }
+        });
+        qrCode.append(document.getElementById("qr"));
+      </script>
       {% endif %}
     </header>
     <section v-cloak id="app">
