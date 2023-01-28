@@ -30,6 +30,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           cname: ${{ secrets.CNAME }}
           pre_build_commands: |
-            sudo apt update
-            sudo apt install -y jq
+            sudo apt-get update
+            sudo apt-get install -y jq
             jq --arg timestamp $timestamp '. + {timestamp: $timestamp}' > timestamp.json
