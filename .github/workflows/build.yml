@@ -9,8 +9,6 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      # - name: Install dependencies
-      #   run: sudo apt-get install libvips-tools liblcms2
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -23,9 +21,20 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gems-
 
+      # Create timestamp.json file
+      - name: Create timestamp file
+        run: echo "{\"timestamp\":\"$(date +%s)\"}" > timestamp.json
+
       # Use GitHub Deploy Action to build and deploy to Github
       - uses: jeffreytse/jekyll-deploy-action@v0.3.1
         with:
           provider: 'github'
           token: ${{ secrets.GITHUB_TOKEN }}
           cname: ${{ secrets.CNAME }}
+
+      # Add timestamp.json to build artifact
+      - name: Add timestamp to build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: timestamp
+          path: timestamp.json
