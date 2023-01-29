@@ -2,13 +2,13 @@ new Vue({
   delimiters: ['${', '}'],
   el: '#app',
   data: {
-    beers: []
+    items: []
   },
   methods: {
     async loadData() {
       const response = await fetch('https://lolev.beer/menu.json');
       const data = await response.json();
-      this.beers = data;
+      this.items = data;
       this.$nextTick(this.changeColors);
     },
     changeColors() {
