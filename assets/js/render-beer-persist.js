@@ -19,7 +19,9 @@ new Vue({
     },
     async refreshOnUpate() {
       try {
-        const response = await fetch(`/timestamp.json`);
+        let rLk = Math.random().toString(36).slice(2, 4);
+        let rLv = Math.random().toString(36).slice(2, 4);
+        const response = await fetch(`/timestamp.json?${rLk}=${rLv}`);
         const data = await response.json();
         let timestamp = data.timestamp;
         let lastRefresh = localStorage.getItem("lastRefresh");

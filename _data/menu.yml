@@ -4,12 +4,12 @@
 #   glutenFree: true
 #   tap: 1
 #   style:
-- name: Stateside Vodka Soda
+- name: Stateside
   price: $8
   glutenFree: true
   abv: 4.5
   tap: 1
-  # type: Vodka Soda
+  type: Vodka Soda
   options:
     - Orange
     - Pineapple

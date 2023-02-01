@@ -1,11 +1,10 @@
 ---
 layout: default
-title: Other
+title: Beer
 refresh: true
 description: false
 price: true
-class: kiosk narrow
-# source: https://lolev.beer/menu.json
-source: '/menu.json'
+class: kiosk
+source: https://lolev.beer/menu.json
 qr: True
 ---
