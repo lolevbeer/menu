@@ -4,12 +4,12 @@
 #   glutenFree: true
 #   tap: 1
 #   style:
-- name: Stateside
+- name: Stateside Vodka Soda
   price: $8
   glutenFree: true
   abv: 4.5
-  tap: 2
-  type: Seltzer
+  tap: 1
+  # type: Vodka Soda
   options:
     - Orange
     - Pineapple
@@ -20,8 +20,16 @@
   price: $8
   glutenFree: true
   abv: 4.5
-  tap: 3
+  tap: 2
   # type:
   options:
     - Tea
     - Lemonade
+
+- name: Long Sleeve Tees
+  price: $25
+  tap: 3
+
+- name: Short Sleeve Tees
+  price: $20
+  tap: 4
