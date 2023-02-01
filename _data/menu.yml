@@ -2,13 +2,26 @@
 - name: Remosa
   price: $5
   glutenFree: true
-  tap: Special
+  tap: 1
   style:
 - name: Stateside
   price: $7
   glutenFree: true
+  abv: 4.5
   tap: 2
   type: Seltzer
   options:
-    - Raspberry
-    - Cucumber
+    - Orange
+    - Pineapple
+    - Black Cherry
+    - Lemon Cucumber Mint
+
+- name: Surfside
+  price: $7
+  glutenFree: true
+  abv: 4.5
+  tap: 3
+  # type: 
+  options:
+    - Tea
+    - Lemonade
