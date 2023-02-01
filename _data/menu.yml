@@ -1,9 +1,9 @@
 
-- name: Remosa
-  price: $5
-  glutenFree: true
-  tap: 1
-  style:
+# - name: Remosa
+#   price: $5
+#   glutenFree: true
+#   tap: 1
+#   style:
 - name: Stateside
   price: $7
   glutenFree: true
@@ -21,7 +21,7 @@
   glutenFree: true
   abv: 4.5
   tap: 3
-  # type: 
+  # type:
   options:
     - Tea
     - Lemonade
