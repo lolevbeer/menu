@@ -12,8 +12,7 @@ new Vue({
         const response = await fetch(`${addr}?${rLk}=${rLv}`);
         const data = await response.json();
         this.items = data;
-        console.log(data)
-        this.$nextTick(this.changeColors);
+        this.$nextTick(this.changeColors)
       } catch (error) {
         console.log(error)
       }
@@ -32,6 +31,11 @@ new Vue({
         console.log(error)
       }
     },
+    adjustPosition(app) {
+      let height = app.offsetHeight;
+      let margin = (window.innerHeight - height) / 2
+      app.style.marginTop = margin + 'px';
+    },
     changeColors() {
       let items = document.querySelectorAll('article');
       for (let i = 0; i < items.length; i++) {
@@ -43,8 +47,9 @@ new Vue({
   mounted() {
     const app = document.querySelector("#app");
     const addr = app.dataset.addr;
-    this.loadData(addr);
+    this.loadData(addr, app);
     setInterval(() => {
+      this.adjustPosition(app);
       this.loadData(addr);
       this.refreshOnUpate();
     }, 5000);
