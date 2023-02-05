@@ -4,7 +4,8 @@
 #   glutenFree: true
 #   tap: 1
 #   style:
-- name: Stateside
+- name: stateside
+  image: True
   price: $8
   glutenFree: true
   abv: 4.5
@@ -16,7 +17,8 @@
     - Black Cherry
     - Lemon Cucumber Mint
 
-- name: Surfside
+- name: surfside
+  image: True
   price: $8
   glutenFree: true
   abv: 4.5

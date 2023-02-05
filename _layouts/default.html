@@ -63,10 +63,12 @@
           {% if page.class == "kiosk" %}
             ${ item.tap }
           {% endif %}
-          <a :href="'https://lolev.beer/beer/' + item.name.toLowerCase().trim()">
-            ${ item.name }
+          <a v-bind:class="{ 'gf' : item.glutenFree }" :href="'https://lolev.beer/beer/' + item.name.toLowerCase().trim()">
+            <span v-if="item.image">
+              <img class="brand" :src="'/assets/images/' + item.name + '.svg'" />
+            </span>
+            <span v-else>${ item.name }</span>
           </a>
-          <img v-if="item.glutenFree" class="gf" src="./assets/gluten-free.svg"></img>
         </span>
         <span v-if="item.abv" class="percent">${ item.abv }</span>
         <span v-if="item.type" class="beer-style">${ item.type }</span>
