@@ -63,6 +63,16 @@ p
 body:not(.kiosk)
   h1
     display: none !important
+  a
+    text-decoration: underline
+    position: relative
+    &:before
+      background-color: black
+      content: ""
+      height: 100%
+      position: absolute
+      right: 0
+      width: 18px
 
 section
   margin-bottom: 3em
