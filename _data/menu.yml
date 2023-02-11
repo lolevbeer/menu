@@ -16,14 +16,14 @@
 #   - Black Cherry
 #   - Lemon Cucumber Mint
 
-- name: Surfside
-  price: $8
-  glutenFree: true
-  abv: 4.5
-  tap: 2
-  # type:
-  options:
-    - Tea
+# - name: Surfside
+#   price: $8
+#   glutenFree: true
+#   abv: 4.5
+#   tap: 2
+#   # type:
+#   options:
+#     - Tea
 #    - Lemonade
 #
 - name: Long Sleeve Tees
