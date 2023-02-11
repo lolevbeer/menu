@@ -24,7 +24,7 @@
   # type:
   options:
     - Tea
-    - Lemonade
+#    - Lemonade
 
 - name: Long Sleeve Tees
   price: $25
