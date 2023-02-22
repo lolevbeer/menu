@@ -1,3 +1,5 @@
+
+
 new Vue({
   delimiters: ['${', '}'],
   el: '#app',
@@ -6,12 +8,13 @@ new Vue({
   },
   methods: {
     async loadData(addr) {
-      let rLk = Math.random().toString(36).slice(2, 4);
-      let rLv = Math.random().toString(36).slice(2, 4);
+      const googleSheet = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQAp3EundNzu6OHCDLFrYUTcU36xsIl4DoTewG2a9HKfSyeHm_YKBiQ5xdaxosJh364-e9Vz5fFYqPD/pub?output=csv'
+      let response = await axios.get(googleSheet);
+      let parsedData = Papa.parse(response.data, { header: true }).data;
+      let json = { ...parsedData }
+      console.log(parsedData)
       try {
-        const response = await fetch(`${addr}?${rLk}=${rLv}`);
-        const data = await response.json();
-        this.items = data;
+        this.items = json;
         this.$nextTick(this.changeColors)
       } catch (error) {
         console.log(error)
