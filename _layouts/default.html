@@ -25,8 +25,8 @@
               type: "svg",
               data: "https://menu.lolev.beer",
               image: "https://lolev.beer/images/logo.svg",
-              width: 500,
-              height: 500,
+              width: 400,
+              height: 400,
               dotsOptions: {
                 color: "#FFF",
                 type: "extra-rounded"
@@ -62,9 +62,6 @@
         <span class="beer-name">
           {% if page.class == "kiosk" %}
             <span class="tap">${ item.tap }</span>
-            <span v-if="item.glass" class="beer-glass">
-              <img :src="'/assets/images/' + item.glass + '.svg'" />
-            </span>
           {% endif %}
           <a :href="'https://lolev.beer/beer/' + item.name.toLowerCase().trim()">
             ${ item.name }
@@ -80,7 +77,16 @@
         </div>
         <span class="beer-info">
           {% if page.price %}
-            <span class="price">${ item.price }</span>
+            <span v-if="item.cans" class="beer-glass">
+              <img :src="'/assets/images/can.svg'" />
+              ${ item.cans }
+            </span>
+            <span v-if="item.glass" class="beer-glass">
+              <img :src="'/assets/images/' + item.glass + '.svg'" />
+            </span>
+            <span v-if="item.price" class="price">
+              ${ item.price }
+            </span>
           {% endif %}
         </span>
       </article>
