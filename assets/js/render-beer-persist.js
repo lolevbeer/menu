@@ -12,7 +12,6 @@ new Vue({
       let response = await axios.get(googleSheet);
       let parsedData = Papa.parse(response.data, { header: true }).data;
       let json = { ...parsedData }
-      console.log(parsedData)
       try {
         this.items = json;
         this.$nextTick(this.changeColors)
@@ -45,7 +44,9 @@ new Vue({
       let items = document.querySelectorAll('article');
       for (let i = 0; i < items.length; i++) {
         let color = randomColor({ luminosity: "light" });
-        items[i].style.color = color;
+        let item = items[i];
+        item.style.color = color;
+        item.getElementsByClassName('beer-style')[0].style.backgroundColor = color;
       }
     }
   },
@@ -55,9 +56,13 @@ new Vue({
     this.loadData(addr, app);
     setInterval(() => {
       this.adjustPosition(app);
-      this.loadData(addr);
+    }, 1000);
+    setInterval(() => {
       this.refreshOnUpate();
     }, 5000);
-    // window.addEventListener('error', () => location.reload(), true);
+    setInterval(() => {
+      this.loadData(addr);
+    }, 30000);
+    window.addEventListener('error', () => location.reload(), true);
   }
 });

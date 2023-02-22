@@ -69,7 +69,7 @@
           <a :href="'https://lolev.beer/beer/' + item.name.toLowerCase().trim()">
             ${ item.name }
           </a>
-          <img v-if="item.glutenFree" class="gf" src="./assets/gluten-free.svg"></img>
+          <img v-if="item.glutenFree == 'TRUE'" class="gf" src="./assets/gluten-free.svg"></img>
         </span>
         <span v-if="item.abv" class="percent">${ item.abv }</span>
         <span v-if="item.type" class="beer-style">${ item.type }</span>
