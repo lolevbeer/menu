@@ -6,5 +6,5 @@ description: false
 price: true
 class: kiosk
 source: '/beer.json'
-qr: True
+qr: False
 ---
