@@ -58,10 +58,11 @@
     {% endif %}
     </header>
     <section data-addr="{{ page.source }}" v-cloak id="app">
-      <article class="items" :data-tap="item.tap" v-if="item.tap" v-for="item in items">
+      <article class="items" :data-tap="item.tap" v-if="item.cans || item.glass" v-for="item in items">
         <span class="beer-name">
           {% if page.class == "kiosk" %}
-            <span class="tap">${ item.tap }</span>
+            <span v-if="item.tap" class="tap">${ item.tap }</span>
+            <span v-else class="tap-none"></span>
           {% endif %}
           <a :href="'https://lolev.beer/beer/' + item.name.toLowerCase().trim()">
             ${ item.name }
@@ -77,15 +78,17 @@
         </div>
         <span class="beer-info">
           {% if page.price %}
-            <span v-if="item.cans" class="beer-glass">
+            <span v-if="item.cans" class="beer-can">
               <img :src="'/assets/images/can.svg'" />
               ${ item.cans }
             </span>
             <span v-if="item.glass" class="beer-glass">
               <img :src="'/assets/images/' + item.glass + '.svg'" />
+              <span v-if="item.price" class="price">
+                ${ item.price }
+              </span>
             </span>
-            <span v-if="item.price" class="price">
-              ${ item.price }
+            <span v-else class="price-none">
             </span>
           {% endif %}
         </span>

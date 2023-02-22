@@ -100,7 +100,6 @@ aside
 img
   display: block
   padding-top: 1em
-  width: 100px
 [v-cloak]
   opacity: 0
 
@@ -172,12 +171,25 @@ img
 .beer-info
   float: right
 
-.beer-glass img
-  display: inline
-  filter: none
-  padding-top: 0
-  transform: translate(33px,7px)
-  height: 55px
+.tap-none
+  display: inline-block
+  width: 75px
+
+.price-none
+  display: inline-block
+  width: 150px
+
+.beer-glass
+  margin-left: 29px
+
+.beer-glass,
+.beer-can
+  img
+    display: inline
+    filter: none
+    padding-top: 0
+    transform: translateY(7px)
+    height: 55px
 
 [data-tap="10"] .tap
   transform: translateX(-12px)
