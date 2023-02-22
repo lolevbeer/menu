@@ -5,6 +5,7 @@ refresh: true
 description: false
 price: true
 class: kiosk
-source: '/beer.json'
+source: '/beer.json' # For debugging
+# source: https://lolev.beer/menu.json
 qr: False
 ---

@@ -1,11 +1,21 @@
-########
+#####################################
+#
 #  Hello, welcome to Lolev Beer management!!
-#  One day we will be in a super-sleek easy-to-manage dashboard, but today we are in YAML!!!
+#  One day we will be in a sleek easy-to-manage dashboard, but today we are in YAML!!! YAML is fun!
 #
-#  "draftPrice" and "tap" must be set for glass pricing, use the "cans" attribute for available cans.
-#  Example
+#  "draftPrice" and "tap" must be set for glass pricing to appear.
+#  Use the "cans" attribute for available cans and set their price.
 #
-########
+#  Example:
+#
+#  - name: Array
+#    type: Pale Ale
+#    description: Refreshing Grapefruit and Pineapple. Subtle aroma of lemon.
+#    abv: 4.9
+#    draftPrice: $6
+#    cans: $12
+#
+####################################
 
 - name: Array
   type: Pale Ale
@@ -112,11 +122,11 @@
   glass: teku
   tap: 10
 
-- tap: False
-  name: Sebastian
+- name: Sebastian
   type: Bock
   description: Refreshing and smooth with a kick. A Maibock brewed with 100% Pilsner malt and German and American Noble Hops.
   abv: 6.7
   draftPrice: $7
   glass: lager
   cans: $12
+  tap: False

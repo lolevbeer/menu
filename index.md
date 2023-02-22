@@ -2,6 +2,6 @@
 layout: default
 title: Beer
 js: true
-price: true
+price: True
 description: false
 ---
