@@ -5,7 +5,7 @@
 #   tap: 1
 #   style:
 - name: Stateside
-  price: $8
+  draftPrice: $8
   glutenFree: true
   abv: 4.5
   tap: 1
@@ -17,7 +17,7 @@
     - Lemon Cucumber Mint
 
 - name: Surfside
-  price: $8
+  draftPrice: $8
   glutenFree: true
   abv: 4.5
   tap: 2
@@ -27,9 +27,9 @@
     - Lemonade
 
 - name: Long Sleeve Tees
-  price: $25
+  draftPrice: $25
   tap: 3
 
 - name: Short Sleeve Tees
-  price: $20
+  draftPrice: $20
   tap: 4
