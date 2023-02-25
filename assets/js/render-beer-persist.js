@@ -55,6 +55,6 @@ new Vue({
       this.loadData(addr);
       this.refreshOnUpate();
     }, 5000);
-    window.addEventListener('error', () => location.reload(), true);
+    // window.addEventListener('error', () => location.reload(), true);
   }
 });

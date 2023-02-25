@@ -83,7 +83,7 @@
               ${ item.cans }
             </span>
             <span v-if="item.draftPrice && item.tap" class="beer-glass">
-              <img :src="'/assets/images/' + item.glass + '.svg'" />
+              <img v-if="item.glass" :src="'/assets/images/' + item.glass + '.svg'" />
               <span v-if="item.draftPrice" class="price">
                 ${ item.draftPrice }
               </span>
