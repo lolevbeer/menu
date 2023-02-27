@@ -1,9 +1,4 @@
 
-# - name: Remosa
-#   price: $5
-#   glutenFree: true
-#   tap: 1
-#   style:
 - name: Stateside
   draftPrice: $8
   glutenFree: true
@@ -16,12 +11,12 @@
     - Black Cherry
     - Lemon Cucumber Mint
 
+
 - name: Surfside
   draftPrice: $8
   glutenFree: true
   abv: 4.5
   tap: 2
-  # type:
   options:
     - Tea
     - Lemonade
