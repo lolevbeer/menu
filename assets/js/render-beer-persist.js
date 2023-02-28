@@ -46,9 +46,13 @@ new Vue({
       for (let i = 0; i < items.length; i++) {
         let color = randomColor({ luminosity: "light" });
         let item = items[i];
-        console.log(i)
+        console.log(color, item, i)
         item.style.color = color;
-        item.getElementsByClassName('beer-style')[0].style.backgroundColor = color;
+        let style = item.getElementsByClassName('beer-style');
+        console.log(style)
+        if (style.length) {
+          style[0].style.backgroundColor = color;
+        }
       }
     }
   },

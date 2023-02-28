@@ -80,22 +80,20 @@
         </div>
         <span class="beer-info">
           {% if page.price %}
-            <span v-if="item.draftPrice && item.tap" class="beer-glass">
+            <span v-if="item.draftAvailable == 'TRUE'" class="beer-glass">
               <img v-if="item.glass" :src="'/assets/images/' + item.glass + '.svg'" />
               <span v-if="item.draftPrice" class="price">
                 ${ item.draftPrice }
               </span>
             </span>
-            <span v-if="item.cans" class="beer-can">
+            <span v-if="item.cansAvailable == 'TRUE'" class="beer-can">
               <img :src="'/assets/images/can.svg'" />
               ${ item.cans }
             </span>
-            <span v-else class="price-none">
+            <span v-else-if="item.price" class="price">
+              ${ item.price }
             </span>
-            <span v-if="item.price" class="price">
-              <span v-if="item.draftPrice" class="price">
-                ${ item.price }
-              </span>
+            <span v-else class="price-none">
             </span>
           {% endif %}
         </span>
