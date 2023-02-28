@@ -3,7 +3,7 @@ html
   letter-spacing: 3px
 
 body
-  font-size: 3.5em
+  font-size: 3em
   font-weight: 400
   letter-spacing: 2px
   line-height: 1.7em
@@ -81,9 +81,11 @@ article
   color: black
   margin: .1em
   position: relative
-  transition: color 250ms ease
+  transition: color 500ms ease
   p
     line-height: 2em
+.beer-style
+  transition: background-color 500ms ease
 .kiosk
   article
     transition: color 1s ease
@@ -158,10 +160,22 @@ img
   display: inline
   margin: 0
   padding: 0
-  transform: translate(-65px,-20px)
+  transform: translate(-50px,-20px)
   width: .8em
   .narrow &
-    transform: translate(-30px,-20px)
+    transform: translate(-20px,-20px)
+
+article:first-child
+  .beer-can:before,
+  .beer-glass:before
+    content: 'To Go'
+    color: white
+    font-size: 30px
+    position: absolute
+    // text-decoration: underline
+    top: -80px
+  .beer-glass:before
+    content: 'Draft'
 
 .pronunciation:before
   content: ' - '
@@ -175,9 +189,9 @@ img
 
 .price-none
   display: inline-block
-  width: 150px
+  width: 147px
 
-.beer-glass
+.beer-can
   margin-left: 29px
 
 .beer-glass,

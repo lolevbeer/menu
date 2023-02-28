@@ -1,3 +1,5 @@
+
+
 new Vue({
   delimiters: ['${', '}'],
   el: '#app',
@@ -8,10 +10,11 @@ new Vue({
     async loadData(addr) {
       let rLk = Math.random().toString(36).slice(2, 4);
       let rLv = Math.random().toString(36).slice(2, 4);
+      let response = await axios.get(addr);
+      let parsedData = Papa.parse(response.data, { header: true }).data;
+      let json = { ...parsedData }
       try {
-        const response = await fetch(`${addr}?${rLk}=${rLv}`);
-        const data = await response.json();
-        this.items = data;
+        this.items = json;
         this.$nextTick(this.changeColors)
       } catch (error) {
         console.log(error)
@@ -42,7 +45,14 @@ new Vue({
       let items = document.querySelectorAll('article');
       for (let i = 0; i < items.length; i++) {
         let color = randomColor({ luminosity: "light" });
-        items[i].style.color = color;
+        let item = items[i];
+        console.log(color, item, i)
+        item.style.color = color;
+        let style = item.getElementsByClassName('beer-style');
+        console.log(style)
+        if (style.length) {
+          style[0].style.backgroundColor = color;
+        }
       }
     }
   },
@@ -52,9 +62,14 @@ new Vue({
     this.loadData(addr, app);
     setInterval(() => {
       this.adjustPosition(app);
-      this.loadData(addr);
+    }, 1000);
+    setInterval(() => {
       this.refreshOnUpate();
     }, 5000);
-    // window.addEventListener('error', () => location.reload(), true);
+    setInterval(() => {
+      this.loadData(addr);
+      console.log('Data updated from ' + addr)
+    }, 30000);
+    window.addEventListener('error', () => location.reload(), true);
   }
 });
