@@ -8,13 +8,11 @@ new Vue({
   },
   methods: {
     async loadData(addr) {
-      const googleSheet = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQAp3EundNzu6OHCDLFrYUTcU36xsIl4DoTewG2a9HKfSyeHm_YKBiQ5xdaxosJh364-e9Vz5fFYqPD/pub?output=csv';
-      console.log(googleSheet.endsWith('csv'))
-      if (googleSheet.endsWith('csv')) {
-        let response = await axios.get(googleSheet);
-        let parsedData = Papa.parse(response.data, { header: true }).data;
-        let json = { ...parsedData }
-      }
+      let rLk = Math.random().toString(36).slice(2, 4);
+      let rLv = Math.random().toString(36).slice(2, 4);
+      let response = await axios.get(addr);
+      let parsedData = Papa.parse(response.data, { header: true }).data;
+      let json = { ...parsedData }
       try {
         this.items = json;
         this.$nextTick(this.changeColors)
@@ -48,6 +46,7 @@ new Vue({
       for (let i = 0; i < items.length; i++) {
         let color = randomColor({ luminosity: "light" });
         let item = items[i];
+        console.log(i)
         item.style.color = color;
         item.getElementsByClassName('beer-style')[0].style.backgroundColor = color;
       }

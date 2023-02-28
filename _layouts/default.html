@@ -73,24 +73,29 @@
         </span>
         <span v-if="item.abv" class="percent">${ item.abv }</span>
         <span v-if="item.type" class="beer-style">${ item.type }</span>
-        <div class="options" v-if="item.options">
-          <span class="option" v-for="option in item.options">
-            ${ option }
+        <div v-if="item.options" class="options">
+          <span class="option">
+            ${ item.options }
           </span>
         </div>
         <span class="beer-info">
           {% if page.price %}
-            <span v-if="item.cans" class="beer-can">
-              <img :src="'/assets/images/can.svg'" />
-              ${ item.cans }
-            </span>
             <span v-if="item.draftPrice && item.tap" class="beer-glass">
               <img v-if="item.glass" :src="'/assets/images/' + item.glass + '.svg'" />
               <span v-if="item.draftPrice" class="price">
                 ${ item.draftPrice }
               </span>
             </span>
+            <span v-if="item.cans" class="beer-can">
+              <img :src="'/assets/images/can.svg'" />
+              ${ item.cans }
+            </span>
             <span v-else class="price-none">
+            </span>
+            <span v-if="item.price" class="price">
+              <span v-if="item.draftPrice" class="price">
+                ${ item.price }
+              </span>
             </span>
           {% endif %}
         </span>
