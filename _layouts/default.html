@@ -74,8 +74,10 @@
         <span v-if="item.abv" class="percent">${ item.abv }</span>
         <span v-if="item.type" class="beer-style">${ item.type }</span>
         <div v-if="item.options" class="options">
-          <span class="option">
-            ${ item.options }
+          <span v-for="option in (item.options.split('|'))">
+            <span class="option">
+              ${ option }
+            </span>
           </span>
         </div>
         <span class="beer-info">
