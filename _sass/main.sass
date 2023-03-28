@@ -167,7 +167,7 @@ img
   .narrow &
     transform: translate(-20px,-20px)
 
-article:first-child
+.kiosk article:first-child
   .beer-can:before,
   .beer-glass:before,
   .price-none:before
@@ -226,10 +226,12 @@ article:first-child
   #qr
     display: none
 
-@media screen and (max-width:800px)
+@media screen and (max-width:1100px)
   .beer-name
     display: block
     margin-bottom: 1em
+  .beer-info
+    display: none
   .beer-style,
   .percent
     margin: 0 .4em
