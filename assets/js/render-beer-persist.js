@@ -69,7 +69,7 @@ new Vue({
     setInterval(() => {
       this.loadData(addr);
       console.log('Data updated from ' + addr)
-    }, 30000);
+    }, 15000);
     window.addEventListener('error', () => location.reload(), true);
   }
 });
