@@ -6,6 +6,14 @@ new Vue({
   data: {
     items: []
   },
+  filters: {
+    replaceDashes(value) {
+      if (typeof value === 'string') {
+        return value.replace(/-/g, ' ');
+      }
+      return value;
+    }
+  },
   methods: {
     async loadData(addr) {
       let rLk = Math.random().toString(36).slice(2, 4);
@@ -46,10 +54,8 @@ new Vue({
       for (let i = 0; i < items.length; i++) {
         let color = randomColor({ luminosity: "light" });
         let item = items[i];
-        console.log(color, item, i)
         item.style.color = color;
         let style = item.getElementsByClassName('beer-style');
-        console.log(style)
         if (style.length) {
           style[0].style.backgroundColor = color;
         }

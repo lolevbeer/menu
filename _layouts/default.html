@@ -85,12 +85,18 @@
             <span v-if="item.draftAvailable == 'TRUE'" class="beer-glass">
               <img v-if="item.glass" :src="'/assets/images/' + item.glass + '.svg'" />
               <span v-if="item.draftPrice" class="price">
-                ${ item.draftPrice }
+                ${ '$' + item.draftPrice }
+              </span>
+            </span>
+            <span v-else-if="item.singleCanAvailable == 'TRUE'" class="beer-glass">
+              <img v-if="item.glass" :src="'/assets/images/can.svg'" />
+              <span v-if="item.draftPrice" class="price">
+                ${ '$' + (Number(item.draftPrice) + 1) }
               </span>
             </span>
             <span v-if="item.cansAvailable == 'TRUE'" class="beer-can">
               <img :src="'/assets/images/can.svg'" />
-              ${ item.cans }
+              ${ '$' + item.cans }
             </span>
             <span v-else-if="item.price" class="price">
               ${ item.price }
