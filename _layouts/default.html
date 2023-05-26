@@ -80,7 +80,7 @@
             </span>
           </span>
         </div>
-        <span class="beer-info">
+        <span class="beer-info" :class="{'oos': item.outOfStock}">
           {% if page.price %}
             <span v-if="item.draftAvailable == 'TRUE'" class="beer-glass">
               <img v-if="item.glass" :src="'/assets/images/' + item.glass + '.svg'" />
