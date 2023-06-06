@@ -113,6 +113,9 @@ body
   color: white
   &.kiosk
     overflow-y: hidden
+  &.invert
+    background: white
+
 img
   filter: invert(1)
 
@@ -138,6 +141,10 @@ img
   .narrow &
     letter-spacing: .2em
 
+.price
+  display: inline-block
+  width: 60px
+
 .beer-style,
 .percent,
 .option
@@ -147,10 +154,12 @@ img
   font-size: .5em
   padding: 10px 25px
   vertical-align: top
+  .invert &
+    background: black
+    color: white
 .option
   font-size: .5em
   letter-spacing: 1px
-  margin-right: .5em
 .options
   display: inline-block
   &::after,
