@@ -141,9 +141,10 @@ img
   .narrow &
     letter-spacing: .2em
 
-.price
+body:not(.narrow) .price
   display: inline-block
   width: 60px
+
 
 .beer-style,
 .percent,
@@ -160,6 +161,10 @@ img
 .option
   font-size: .5em
   letter-spacing: 1px
+  .narrow &
+    margin-right: .5em
+.narrow .options>span:last-child span
+  margin-right: 0
 .options
   display: inline-block
   &::after,
