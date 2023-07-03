@@ -35,10 +35,10 @@ new Vue({
         const response = await fetch(`/timestamp.json?${rLk}=${rLv}`);
         const data = await response.json();
         let timestamp = data.timestamp;
-        let lastRefresh = localStorage.getItem("lastRefresh");
+        let lastRefresh = localStorage.getItem('lastRefresh');
         if (timestamp != lastRefresh) {
           location.reload()
-          localStorage.setItem("lastRefresh", timestamp);
+          localStorage.setItem('lastRefresh', timestamp);
         }
       } catch (error) {
         console.log(error)
@@ -52,7 +52,7 @@ new Vue({
     changeColors() {
       let items = document.querySelectorAll('article');
       for (let i = 0; i < items.length; i++) {
-        let color = randomColor({ luminosity: "light" });
+        let color = randomColor({ luminosity: 'light'});
         let item = items[i];
         item.style.color = color;
         let style = item.getElementsByClassName('beer-style');
@@ -63,7 +63,7 @@ new Vue({
     }
   },
   mounted() {
-    const app = document.querySelector("#app");
+    const app = document.querySelector('#app');
     const addr = app.dataset.addr;
     this.loadData(addr, app);
     setInterval(() => {
