@@ -15,17 +15,28 @@ new Vue({
     }
   },
   methods: {
-    async loadData(addr) {
-      let rLk = Math.random().toString(36).slice(2, 4);
-      let rLv = Math.random().toString(36).slice(2, 4);
-      let response = await axios.get(addr);
-      let parsedData = Papa.parse(response.data, { header: true }).data;
-      let json = { ...parsedData }
+    async loadData(id, tab) {
+      let ak = 'AIzaSyD4yUvvzDDtsAa4MzlO0jrSMLdlVyQqOhY';
+      let addr = `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${tab}?key=${ak}`;
+
       try {
-        this.items = json;
-        this.$nextTick(this.changeColors)
+        let response = await axios.get(addr);
+        let parsedData = response.data.values; // 'values' contains the data
+
+        // Assuming the first row contains headers, we use it to build objects for each subsequent row
+        let headers = parsedData[0];
+        let items = parsedData.slice(1).map(row => {
+          let item = {};
+          row.forEach((value, index) => {
+            item[headers[index]] = value;
+          });
+          return item;
+        });
+
+        this.items = items;
+        this.$nextTick(this.changeColors);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     },
     async refreshOnUpate() {
@@ -63,19 +74,20 @@ new Vue({
     }
   },
   mounted() {
-    const app = document.querySelector('#app');
-    const addr = app.dataset.addr;
-    this.loadData(addr, app);
+    const id = app.dataset.id;
+    const tab = app.dataset.tab;
+    // const sheetId = '1kzvwcErnsYkShc1rEalzlKSsDQzF6wb-CyIwtZ44syY'; // Replace with your Google Sheets ID
+    // const tab = 'Beer Menu'; // Replace with your sheet's name
+    this.loadData(id, tab);
     setInterval(() => {
       this.adjustPosition(app);
     }, 1000);
     setInterval(() => {
       this.refreshOnUpate();
-    }, 5000);
+    }, 1000);
     setInterval(() => {
-      this.loadData(addr);
-      console.log('Data updated from ' + addr)
-    }, 15000);
-    window.addEventListener('error', () => location.reload(), true);
+      this.loadData(id, tab);
+      console.log('Data updated from Google Sheets')
+    }, 10000);
   }
 });
