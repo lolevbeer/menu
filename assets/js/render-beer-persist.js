@@ -22,8 +22,6 @@ new Vue({
       try {
         let response = await axios.get(addr);
         let parsedData = response.data.values; // 'values' contains the data
-
-        // Assuming the first row contains headers, we use it to build objects for each subsequent row
         let headers = parsedData[0];
         let items = parsedData.slice(1).map(row => {
           let item = {};
@@ -76,8 +74,6 @@ new Vue({
   mounted() {
     const id = app.dataset.id;
     const tab = app.dataset.tab;
-    // const sheetId = '1kzvwcErnsYkShc1rEalzlKSsDQzF6wb-CyIwtZ44syY'; // Replace with your Google Sheets ID
-    // const tab = 'Beer Menu'; // Replace with your sheet's name
     this.loadData(id, tab);
     setInterval(() => {
       this.adjustPosition(app);

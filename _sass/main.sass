@@ -280,6 +280,40 @@ header
   display: flex
   flex-direction: row
 
+.shockwave .beer-name
+
+  animation: shockwaveJump 3s ease-out infinite
+  color: #ff1f1f
+  display: inline-block
+  position: relative
+  &:after,
+  &:before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    border-radius: 5px
+  &:after
+    animation: shockwave 3s .65s ease-out infinite
+  &:before
+    animation: shockwave 3s .5s ease-out infinite
+
+@keyframes shockwaveJump
+  0%
+    transform: scale(1)
+  80%
+    transform: scale(1.08)
+  85%
+     transform: scale(0.98)
+  90%
+    transform: scale(1.02)
+  95%
+    transform: scale(0.98)
+  100%
+    transform: scale(1)
+
 @keyframes fadein
   from
     opacity: 0
