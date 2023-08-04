@@ -60,7 +60,7 @@
     {% endif %}
     </header>
     <section data-id="{{ page.id }}" data-tab="{{ page.tab }}" v-cloak id="app">
-      <article class="items" :data-tap="item.tap" v-if="item.name" v-for="item in items" :class="{'shockwave': item.attention == 'TRUE'}">
+      <article class="items" :data-tap="item.tap" v-if="item.name && item.outOfStock != 'TRUE'" v-for="item in items" :class="{'shockwave': item.attention == 'TRUE'}">
         <span class="beer-name">
           {% if page.class == "kiosk" %}
             <span v-if="item.tap" class="tap">${ item.tap }</span>
@@ -80,7 +80,7 @@
           </span>
         </div>
         <span v-if="item.abv" class="percent">${ item.abv }</span>
-        <span class="beer-info" :class="{'oos': item.outOfStock}">
+        <span class="beer-info">
           {% if page.price %}
             <span v-if="item.draftAvailable == 'TRUE'" class="beer-glass">
               <img v-if="item.glass" :src="'/assets/images/' + item.glass + '.svg'" />
