@@ -3,7 +3,8 @@ html
   letter-spacing: 3px
 
 body
-  font-size: 3em
+  // font-size: 3em
+  font-size: 2.7em
   font-weight: 400
   letter-spacing: 2px
   line-height: 1.7em
@@ -176,7 +177,12 @@ body:not(.narrow) .price
     content: '%'
     font-size: .75em
     vertical-align: middle
-
+.description
+  display: inline-block
+  font-size: 18px
+  line-height: 22px
+  transform: translateY(-2px)
+  vertical-align: middle
 .gf
   display: inline
   margin: 0
@@ -206,6 +212,8 @@ body:not(.narrow) .price
 
 .beer-info
   float: right
+  body:not(.narrow) &
+    width: 272px
 
 .tap-none
   display: inline-block

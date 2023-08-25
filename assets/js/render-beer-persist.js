@@ -53,6 +53,42 @@ new Vue({
         console.log(error)
       }
     },
+    getElementPosition(element) {
+      let boundingBox = element.getBoundingClientRect();
+      let offsetLeft = boundingBox.left + window.pageXOffset;
+      let offsetRight = boundingBox.right + window.pageXOffset;
+      return { left: offsetLeft, right: offsetRight };
+    },
+    getWidths() {
+      let articles = document.querySelectorAll("article");
+
+      articles.forEach((article) => {
+        // Get the .percent and .beer-info elements within this article
+        let percentElement = article.querySelector(".percent");
+        let beerInfoElement = article.querySelector(".beer-info");
+
+        // Get the .description element within this article
+        let descriptionElement = article.querySelector(".description");
+
+        // Ensure all elements exist
+        if (percentElement && beerInfoElement && descriptionElement) {
+          // Get the positions of each element
+          let percentPosition = this.getElementPosition(percentElement);
+          let beerInfoPosition = this.getElementPosition(beerInfoElement);
+
+          console.log("percentRight",percentPosition.right, "InfoPosition", beerInfoPosition.left)
+
+          // Calculate the distance in pixels along the X-axis
+          let distanceX = Math.abs(percentPosition.right - beerInfoPosition.left);
+
+          // Set this distance as the max-width of the .description element
+          descriptionElement.style.maxWidth = distanceX - 30 + "px";
+          console.log(distanceX);
+        } else {
+          console.error("Required elements not found in one of the articles");
+        }
+      });
+    },
     adjustPosition(app) {
       let height = app.offsetHeight;
       let margin = (window.innerHeight - height) / 2
@@ -77,6 +113,7 @@ new Vue({
     this.loadData(id, tab);
     setInterval(() => {
       this.adjustPosition(app);
+      this.getWidths();
     }, 1000);
     setInterval(() => {
       this.refreshOnUpate();
