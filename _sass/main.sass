@@ -82,14 +82,13 @@ article
   color: black
   margin: .1em
   position: relative
-  transition: color 2.5s ease
   p
     line-height: 2em
 .beer-style
-  transition: background-color 2.5s ease
+  transition: background-color 1s ease
 .kiosk
   article
-    transition: color 2.5s ease
+    transition: color 1s ease
     p
       margin-left: 4em
       margin-right: 4em
@@ -181,8 +180,13 @@ body:not(.narrow) .price
   font-size: 21px
   line-height: 22px
   transform: translateY(-2px)
-  transition: color 2.5s ease
   vertical-align: middle
+.description,
+.tap,
+.price,
+.beer-can,
+.beer-name a
+  transition: color 1.5s ease
 .gf
   display: inline
   margin: 0
