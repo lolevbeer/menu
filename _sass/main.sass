@@ -117,7 +117,7 @@ body
   &.invert
     background: white
 
-img
+img[src$=".svg"]
   filter: invert(1)
 
 .logo
@@ -187,10 +187,8 @@ body:not(.narrow) .price
   display: inline
   margin: 0
   padding: 0
-  transform: translate(-35px,-20px)
+  transform: translate(-20px,-20px)
   width: .8em
-  .narrow &
-    transform: translate(-20px,-20px)
 
 .kiosk article:first-child
   .beer-can:before,
@@ -233,6 +231,10 @@ body:not(.narrow) .price
     padding-top: 0
     transform: translateY(7px)
     height: 55px
+
+img[src$=".webp"]
+    transform: scale(2) translateY(-3px)
+    height: 27.5px
 
 [data-tap="10"] .tap
   transform: translateX(-12px)
