@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Other
+title: Beer To Go
 refresh: true
 price: true
 class: kiosk narrow
