@@ -103,7 +103,6 @@ aside
   display: inline-block
 img
   display: block
-  padding-top: 1em
 [v-cloak]
   opacity: 0
 
@@ -124,7 +123,13 @@ img[src$=".svg"]
   width: 100px
   top: 0px
   .kiosk &
+    right: 75px
+
     position: absolute
+    top: 30px
+  .kiosk.narrow &
+    left: 14px
+    right: auto
 #qr
   position: absolute
   right: 8em
@@ -177,7 +182,7 @@ body:not(.narrow) .price
 .description
   display: inline-block
   font-size: 1.5rem
-  line-height: 1em
+  line-height: 1.1em
   transform: translateY(-2px)
   vertical-align: middle
 .description,
@@ -198,6 +203,7 @@ body:not(.narrow) .price
 
 .beer-info
   float: right
+  width: 175px
 
 .tap-none
   display: inline-block
