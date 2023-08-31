@@ -92,7 +92,7 @@ new Vue({
     adjustPosition(app) {
       let height = app.offsetHeight;
       let margin = (window.innerHeight - height) / 2
-      app.style.marginTop = margin + 'px';
+      app.style.marginTop = (100 + margin) + 'px';
     },
     changeColors() {
       let items = document.querySelectorAll('article');
