@@ -83,9 +83,7 @@ new Vue({
 
           // Set this distance as the max-width of the .description element
           descriptionElement.style.maxWidth = distanceX - 30 + "px";
-          console.log(distanceX);
-        } else {
-          console.error("Required elements not found in one of the articles");
+
         }
       });
     },
@@ -112,12 +110,12 @@ new Vue({
     const tab = app.dataset.tab;
     this.loadData(id, tab);
     setInterval(() => {
-      this.adjustPosition(app);
       this.getWidths();
-    }, 1000);
+      this.adjustPosition(app);
+    }, 100);
     setInterval(() => {
       this.refreshOnUpate();
-    }, 1000);
+    }, 5000);
     setInterval(() => {
       this.loadData(id, tab);
       console.log('Data updated from Google Sheets')
