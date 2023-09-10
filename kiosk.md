@@ -1,6 +1,6 @@
 ---
 layout: display
-title: Beer To Go
+title: Four Packs
 refresh: true
 price: true
 class: kiosk display
