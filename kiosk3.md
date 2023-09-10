@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Beer To Go
+title: Draft Beer
 refresh: true
 price: true
-class: kiosk narrow
-id: '1ByxgaootC5I5WL4J2L94T9yJLBCNODzOCUQYIi1HEPA'
-tab: 'Beer'
+class: kiosk invert
+id: '1yRgg0rEcZsdYEKWmrVVzQ4eFFJ16_W_6nzuRzdXOS18'
+tab: 'Beer Menu'
 qr: False
 ---
