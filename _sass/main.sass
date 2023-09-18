@@ -121,7 +121,7 @@ img[src$=".svg"]
   height: 102px
   position: relative
   width: 100px
-  top: 0px
+  top: 100px
   .kiosk &
     right: 75px
     position: absolute
@@ -203,6 +203,13 @@ body:not(.narrow) .price
 
 .beer-info
   float: right
+  body:not(.kiosk) &
+    display: none
+
+body:not(.kiosk)
+  .description
+    display: block
+    margin-top: 0.5em
 
 .tap-none
   display: inline-block
