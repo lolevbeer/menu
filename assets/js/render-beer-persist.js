@@ -95,7 +95,7 @@ new Vue({
     changeColors() {
       let items = document.querySelectorAll('article');
       for (let i = 0; i < items.length; i++) {
-        let color = randomColor({ luminosity: 'light'});
+        let color = randomColor({ luminosity: 'bright'});
         let item = items[i];
         item.style.color = color;
         let style = item.getElementsByClassName('beer-style');
