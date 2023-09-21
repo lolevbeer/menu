@@ -25,6 +25,7 @@
     <section data-id="{{ page.id }}" data-tab="{{ page.tab }}" v-cloak id="app">
       <article v-if="item.cansAvailable == 'TRUE'" class="items" :data-tap="item.tap" v-if="item.name && item.outOfStock != 'TRUE'" v-for="item in items" :class="{'shockwave': item.attention == 'TRUE'}">
         <h2>${ item.name }</h2>
+        <h3>${ item.type }</h3>
         <img :src="'https://lolev.beer/assets/beer/' + item.variant + '.png'" />
       </article>
     </section>
