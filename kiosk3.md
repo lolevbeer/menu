@@ -1,6 +1,5 @@
 ---
 layout: default
-title: Draft Beer
 refresh: true
 price: true
 class: kiosk invert
