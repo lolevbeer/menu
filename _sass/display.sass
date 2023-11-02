@@ -38,6 +38,7 @@ h2
   article
     display: inline-block
     padding: 10px 32px
+    position: relative
     text-align: center
     width: 316px
     &:nth-child(-n+5)
@@ -55,3 +56,36 @@ h2
   position: absolute
   left: 155px
   top: 40px
+
+.sale
+  animation: shockwaveJump 3s ease-out infinite
+  background: yellow
+  border-radius: 10px
+  color: black
+  font-size: 40px
+  padding: 0 25px
+  position: absolute
+  font-weight: bold
+  left: calc(50% - 62px)
+  top: 60%
+  z-index: 1
+  &:before
+    content: '$'
+  &:after
+    animation: shockwave 3s .65s ease-out infinite
+  &:before
+    animation: shockwave 3s .5s ease-out infinite
+
+@keyframes shockwaveJump
+  0%
+    transform: scale(1)
+  80%
+    transform: scale(1.08)
+  85%
+     transform: scale(0.90)
+  90%
+    transform: scale(1.02)
+  95%
+    transform: scale(0.90)
+  100%
+    transform: scale(1)
