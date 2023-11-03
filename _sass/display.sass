@@ -59,20 +59,24 @@ h2
 
 .sale
   animation: shockwaveJump 3s ease-out infinite
-  background: yellow
+  background: #ffd500bf
   border-radius: 10px
   color: black
   font-size: 40px
   padding: 0 25px
   position: absolute
   font-weight: bold
-  left: calc(50% - 62px)
-  top: 60%
+  left: calc(50% - 85px)
+  top: 45%
   z-index: 1
   &:before
     content: '$'
   &:after
     animation: shockwave 3s .65s ease-out infinite
+    content: "last call"
+    display: block
+    font-size: 20px
+    text-transform: uppercase
   &:before
     animation: shockwave 3s .5s ease-out infinite
 
