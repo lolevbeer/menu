@@ -27,6 +27,7 @@
         <h2>${ item.name }</h2>
         <h3>${ item.type }</h3>
         <p v-if="item.salePrice" class="sale">${ item.salePrice }</p>
+        <p v-else class="price">${ item.cans }</p>
         <img :src="'https://lolev.beer/assets/beer/' + item.variant + '.png'" />
       </article>
     </section>
