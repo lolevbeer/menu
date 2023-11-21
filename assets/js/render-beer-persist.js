@@ -18,7 +18,6 @@ new Vue({
     async loadData(id, tab) {
       let ak = 'AIzaSyD4yUvvzDDtsAa4MzlO0jrSMLdlVyQqOhY';
       let addr = `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${tab}?key=${ak}`;
-
       try {
         let response = await axios.get(addr);
         let parsedData = response.data.values; // 'values' contains the data
@@ -115,7 +114,7 @@ new Vue({
     }, 100);
     setInterval(() => {
       this.refreshOnUpate();
-    }, 5000);
+    }, 10000);
     setInterval(() => {
       this.loadData(id, tab);
       console.log('Data updated from Google Sheets')
