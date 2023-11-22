@@ -1,6 +1,6 @@
 ---
 layout: display
-title: Four Packs
+title: 4 Packs To Go
 refresh: true
 price: true
 class: kiosk display
