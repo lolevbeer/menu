@@ -72,15 +72,16 @@ h2
   &:before
     content: '$'
 @keyframes fadeInOut
-  0%, 13%
-    opacity: 1 // Fully visible for the first 3 seconds
+  0%, 20%
+    opacity: 1
 
-  15%, 50%, 98%
-    opacity: 0 // Fades out for the rest of the duration
+  22%, 50%, 98%
+    opacity: 0
+
+$animation-duration: 60s
 
 .price
-  $animation-duration: 30s
-  animation: fadeInOut $animation-duration ease infinite
+  animation: fadeInOut #{$animation-duration} ease infinite
 
 .sold-out
   background: #ff000094
@@ -95,7 +96,7 @@ h2
   width: 220px
   z-index: 1
 .sale
-  animation: shockwaveJump 3s ease-out infinite, fadeInOut 30s ease infinite
+  animation: shockwaveJump 3s ease-out infinite, fadeInOut #{$animation-duration} ease infinite
   background: #ffd500bf
   border-radius: 10px
   color: black
