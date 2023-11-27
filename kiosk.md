@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Draft Beer
+title: Taproom Beer
 refresh: true
 price: true
 class: kiosk
