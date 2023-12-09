@@ -29,7 +29,6 @@ new Vue({
           });
           return item;
         });
-
         this.items = items;
         this.$nextTick(this.changeColors);
       } catch (error) {
@@ -57,6 +56,16 @@ new Vue({
       let offsetLeft = boundingBox.left + window.pageXOffset;
       let offsetRight = boundingBox.right + window.pageXOffset;
       return { left: offsetLeft, right: offsetRight };
+    },
+    addCounts() {
+      // Count all 'article' tags
+      var articleCount = document.querySelectorAll('article').length;
+
+      // Select the '#app' element, remove all existing classes, and add the new count class
+      var appElement = document.querySelector('#app');
+      if (appElement) {
+        appElement.className = 'count-' + articleCount;
+      }
     },
     getWidths() {
       let articles = document.querySelectorAll("article");
@@ -88,7 +97,7 @@ new Vue({
     },
     adjustPosition(app) {
       let height = app.offsetHeight;
-      let margin = (window.innerHeight - height) / 2
+      let margin = (window.innerHeight - height) / 2;
       app.style.marginTop = (75 + margin) + 'px';
     },
     changeColors() {
@@ -117,7 +126,9 @@ new Vue({
     }, 10000);
     setInterval(() => {
       this.loadData(id, tab);
-      console.log('Data updated from Google Sheets')
+      console.log('Data updated from Google Sheets');
+      this.addCounts();
+      console.log("counts")
     }, 10000);
   }
 });
