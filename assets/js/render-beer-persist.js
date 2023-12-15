@@ -116,19 +116,29 @@ new Vue({
   mounted() {
     const id = app.dataset.id;
     const tab = app.dataset.tab;
-    this.loadData(id, tab);
-    setInterval(() => {
-      this.getWidths();
-      this.adjustPosition(app);
-    }, 100);
-    setInterval(() => {
-      this.refreshOnUpate();
-    }, 10000);
-    setInterval(() => {
-      this.loadData(id, tab);
-      console.log('Data updated from Google Sheets');
+
+    // Make the mounted method async
+    (async () => {
+      // Await the completion of loadData before executing addCounts
+      await this.loadData(id, tab);
       this.addCounts();
-      console.log("counts")
-    }, 10000);
+
+      // The rest of your setInterval calls remain the same
+      setInterval(() => {
+        this.getWidths();
+        this.adjustPosition(app);
+      }, 100);
+
+      setInterval(() => {
+        this.refreshOnUpate();
+      }, 10000);
+
+      setInterval(async () => {
+        await this.loadData(id, tab);
+        console.log('Data updated from Google Sheets');
+        this.addCounts();
+        console.log("Counts updated");
+      }, 10000);
+    })();
   }
 });
