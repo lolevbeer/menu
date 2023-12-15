@@ -10,16 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.0.0' # Specify Ruby version
-
-      - name: Install Bundler
-        run: gem install bundler -v 2.2.30 # Install the required Bundler version
-
-      - name: Bundle Install
-        run: bundle install # Run bundle install
 
       # Use GitHub Actions' cache to cache dependencies on servers
       - uses: actions/cache@v2
@@ -35,6 +25,16 @@ jobs:
 
       # Use GitHub Deploy Action to build and deploy to Github
       - uses: jeffreytse/jekyll-deploy-action@v0.3.1
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0.0' # Specify Ruby version
+
+      - name: Install Bundler
+        run: gem install bundler -v 2.2.30 # Install the required Bundler version
+
+      - name: Bundle Install
+        run: bundle install # Run bundle install
         with:
           provider: 'github'
           token: ${{ secrets.GITHUB_TOKEN }}
