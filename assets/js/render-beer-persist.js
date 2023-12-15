@@ -1,5 +1,3 @@
-
-
 new Vue({
   delimiters: ['${', '}'],
   el: '#app',
@@ -60,12 +58,37 @@ new Vue({
     addCounts() {
       // Count all 'article' tags
       var articleCount = document.querySelectorAll('article').length;
+      var newClassName = 'count-' + articleCount;
 
-      // Select the '#app' element, remove all existing classes, and add the new count class
+      // Select the '#app' element
       var appElement = document.querySelector('#app');
       if (appElement) {
-        appElement.className = 'count-' + articleCount;
+        // Check if class name has changed
+        if (appElement.className !== newClassName) {
+          // Update class name
+          appElement.className = newClassName;
+
+          // Wait for the next DOM update cycle
+          this.$nextTick(() => {
+            // Then reset animations
+            this.resetAnimations();
+            console.log('Reset animations');
+          });
+        }
       }
+    },
+    resetAnimations() {
+      let animatedElements = document.querySelectorAll('.price, .sale'); // Add other selectors as needed
+      animatedElements.forEach(el => {
+        // Force a reflow
+        void el.offsetWidth;
+
+        // Restart animation
+        el.style.animation = 'none';
+        setTimeout(() => {
+          el.style.animation = '';
+        }, 10);
+      });
     },
     getWidths() {
       let articles = document.querySelectorAll("article");
