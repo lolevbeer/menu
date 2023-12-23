@@ -18,6 +18,8 @@
     <script src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
   </head>
   <body class="{{ page.class }} {% if page.price != true %}no-price{% endif %}">
+    <div class="sr-widget" data-sr-widget="us.match.nfl.liveMatchCarousel" data-sr-limit=1></div>
+    <script type="application/javascript" src="https://widgets.media.sportradar.com/uscommon/widgetloader" data-sr-language="en_us" async=""></script>
     <header>
       <img class="logo" src="https://lolev.beer/images/logo.svg"/>
       <h1>{{ page.title }}</h1>
