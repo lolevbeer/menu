@@ -33,4 +33,4 @@ to go:
       price: $20
 ```
 
-Runs on Jekyll, use `jekyll serve --livereload` to view locally.
+Runs on Jekyll, use `sudo bundle exec jekyll serve --livereload -P 4001` to view locally.
