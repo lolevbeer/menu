@@ -112,7 +112,7 @@ body
   &.kiosk
     overflow-y: hidden
   &.invert
-    background: white
+    // background: white
 
 img[src$=".svg"]
   filter: invert(1)
@@ -158,8 +158,8 @@ body:not(.narrow) .price
   padding: 10px 25px
   vertical-align: top
   .invert &
-    background: black
-    color: white
+    // background: black
+    // color: white
 .option
   font-size: .5em
   letter-spacing: 1px
@@ -232,6 +232,8 @@ body:not(.kiosk)
     padding-top: 0
     transform: translateY(7px)
     height: 55px
+    .invert &
+      margin-right: 0.5em
 
 img[src$=".webp"]
     transform: scale(2) translateY(-3px)
@@ -339,7 +341,7 @@ header
   .description
     display: none
   .logo
-    filter: invert(0)
+    // filter: invert(0)
     top: 80px
     left: calc(50% - 40px)
     width: 80px
