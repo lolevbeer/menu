@@ -1,10 +1,10 @@
 ---
-layout: default
-title: Tap List
+layout: display
+title: 4 Packs To Go
 refresh: true
 price: true
-class: kiosk
-id: '1kzvwcErnsYkShc1rEalzlKSsDQzF6wb-CyIwtZ44syY'
-tab: 'Beer Menu'
+class: kiosk display
+id: '1ByxgaootC5I5WL4J2L94T9yJLBCNODzOCUQYIi1HEPA'
+tab: 'Beer'
 qr: False
 ---
