@@ -3,6 +3,12 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
+        <!-- connect to domain of font files -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- optionally increase loading priority -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&amp;family=Poppins:wght@500;600&amp;display=fallback">
+    <!-- async CSS -->
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&amp;family=Poppins:wght@500;600&amp;display=fallback">
   </head>
   <style>
     body {
