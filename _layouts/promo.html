@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+  </head>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+    header {
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: top;
+      color: white;
+      text-align: center;
+    }
+    h1 {
+      font-size: 4rem;
+      color: yellow;
+      animation: fade 2s infinite;
+    }
+
+    @keyframes fade {
+      0% {
+      opacity: 1;
+      }
+      25% {
+      opacity: 0;
+      }
+      50% {
+      opacity: 1;
+      }
+    }
+    h2 {
+      font-size: 3rem;
+      margin: 23% 0 0; /* Modified */
+    }
+  </style>
+  <body style="margin: 0" class="{{ page.class }} {% if page.price != true %}no-price{% endif %}">
+    <header style="background-image: url('/promo/Dov.jpg');">
+      <h1>COMEDY SHOW&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DOV DAVIDOFF</h1>
+      <h2>
+      TONIGHT  APRIL 13<br>
+       7pm & 9pm Shows<br>
+       LOLEV BEER<br>
+       5247 BUTLER ST</h2>
+    </header>
+  </body>
+</html>
