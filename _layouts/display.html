@@ -26,7 +26,7 @@
       <article class="items" :data-tap="item.tap" v-if="item.name && item.outOfStock != 'TRUE'" v-for="item in items" :class="{'shockwave': item.attention == 'TRUE'}">
         <h2>${ item.name }</h2>
         <h3>${ item.type } <span class="percent-abv">${ item.abv }</span></h3>
-        <p v-if="item.cansAvailable == 'FALSE'" class="sold-out">SOLD OUT</p>
+        <p v-if="item.cansAvailable == 'FALSE'" class="sold-out">SOLD AHT</p>
         <p v-else-if="item.salePrice" class="sale">${ item.salePrice }</p>
         <p v-else class="price">${ item.cans }</p>
         <img :src="'https://lolev.beer/assets/beer/' + item.variant + '.png'" />
