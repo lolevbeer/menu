@@ -43,7 +43,7 @@
             </span>
           </span>
         </div>
-        <span v-if="item.abv" class="percent">${ item.abv }</span>
+        <span v-if="item.abv" class="percent">${ item.abv + '%'}</span>
         <span v-if="item.description" class="description">${ item.description }</span>
         <span class="beer-info">
           {% if page.price %}
