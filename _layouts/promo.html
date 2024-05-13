@@ -15,23 +15,35 @@
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f0f0f0;
+      /* background-color: #000; */
     }
     header {
-      background-size: cover;
-      background-position: center;
       height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: top;
       color: white;
       text-align: center;
     }
+    header:after {
+      content: '';
+      background-image: url('/promo/lolev-lot.jpg');
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      opacity: .5;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
     h1 {
-      font-size: 5rem;
-      color: yellow;
-      animation: fade 2s infinite;
+      font-size: 7rem;
+      color: black;
+      /* animation: fade 2s infinite; */
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      z-index: 1;
     }
 
     @keyframes fade {
@@ -51,15 +63,8 @@
     }
   </style>
   <body style="margin: 0" class="{{ page.class }} {% if page.price != true %}no-price{% endif %}">
-    <header style="background-image: url('/promo/Dov.jpg');">
-      <h1>COMEDY SHOW&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DOV DAVIDOFF</h1>
-      <h2>
-        TONIGHT  APRIL 13<br>
-        7pm & 9pm Shows<br>
-        LOLEV BEER<br>
-        <span style="font-weight: normal; font-size: x-large">Hosted by Trevor Austin featuring Ronnie Fleming</span>
-      </h2>
-      </h2>
+    <header>
+      <h1>Ask us about our Beer Garden</h1>
     </header>
   </body>
 </html>
