@@ -23,7 +23,16 @@ h2
   line-height: 1.5em
   margin: 0
   transform: translateY(-10px)
-
+body
+  margin: 0
+  &::after
+    background: black
+    color: white
+    content: "CANS FOR OFFSITE CONSUMPTION ONLY, NO ACCEPTIONS"
+    display: block
+    text-align: center
+    font-size: 40px
+    transform: translateY(-26px)
 .display
   h3
     color: black
@@ -37,7 +46,7 @@ h2
     text-align: center
   article
     display: inline-block
-    padding: 0 15px
+    padding: 0
     position: relative
     text-align: center
     width: 350px
@@ -54,7 +63,6 @@ h2
 .count-11,
 .count-12
   article
-    padding: 21px 1px
     width: 315px
 
 .count-7,
