@@ -99,8 +99,16 @@ h2
 $animation-duration: 60s
 
 .price
-  animation: fadeInOut #{$animation-duration} ease infinite
+  // animation: fadeInOut #{$animation-duration} ease infinite
   top: 30%
+
+.prices
+  color: #000
+  font-size: 20px
+  letter-spacing: 1px
+  .price-value
+    &::before
+      content: '$'
 
 .sold-out
   background: #ff000094
