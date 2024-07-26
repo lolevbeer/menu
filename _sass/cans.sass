@@ -25,14 +25,19 @@ h2
   transform: translateY(-10px)
 body
   margin: 0
+#app
   &::after
     background: black
+    bottom: 0
     color: white
     content: "CANS FOR OFFSITE CONSUMPTION ONLY, NO EXCEPTIONS"
     display: block
-    text-align: center
     font-size: 40px
-    transform: translateY(-8px)
+    left: 0
+    position: absolute
+    right: 0
+    text-align: center
+
 .display
   h3
     color: black
@@ -59,6 +64,13 @@ body
       main
         text-align: center
         text-transform: uppercase
+
+.count-9,
+.count-10
+  article
+    padding: 0px 17px
+    img
+      transform: scale(1) translateY(-35px)
 
 .count-11,
 .count-12
