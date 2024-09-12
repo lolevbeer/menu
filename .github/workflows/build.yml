@@ -32,7 +32,7 @@ jobs:
 
       # Add timestamp.json to build artifact
       - name: Add timestamp to build artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: timestamp
           path: timestamp.json
