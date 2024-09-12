@@ -103,18 +103,14 @@ new Vue({
 
         // Ensure all elements exist
         if (percentElement && beerInfoElement && descriptionElement) {
-          // Get the positions of each element
-          let percentPosition = this.getElementPosition(percentElement);
-          let beerInfoPosition = this.getElementPosition(beerInfoElement);
+          // Get the positions of each element using offsetLeft instead of getBoundingClientRect
+          let percentPosition = percentElement.offsetLeft + percentElement.offsetWidth;
+          let beerInfoPosition = beerInfoElement.offsetLeft;
 
-          console.log("percentRight",percentPosition.right, "InfoPosition", beerInfoPosition.left)
-
-          // Calculate the distance in pixels along the X-axis
-          let distanceX = Math.abs(percentPosition.right - beerInfoPosition.left);
+          let distanceX = Math.abs(percentPosition - beerInfoPosition);
 
           // Set this distance as the max-width of the .description element
           descriptionElement.style.maxWidth = distanceX - 30 + "px";
-
         }
       });
     },
