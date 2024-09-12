@@ -8,6 +8,13 @@ body
   line-height: 1.7em
   margin: 0
 
+@media screen and (max-width: 1281px)
+  body
+    transform: scale(0.67) // Adjust the scale factor as needed
+    transform-origin: top left // Ensures scaling starts from the top left corner
+    width: 150% // Adjust width to prevent clipping
+    overflow-x: hidden // Prevents horizontal scroll
+
 
 #app
   margin: 5vh .5em 5vh 1em !important
