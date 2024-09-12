@@ -23,19 +23,14 @@ jobs:
       - name: Create timestamp file
         run: echo "{\"timestamp\":\"$(date +%s)\"}" > timestamp.json
 
-      # Build your Jekyll site (if needed)
-      - name: Build Jekyll site
-        run: |
-          bundle install
-          bundle exec jekyll build
-
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site  # Adjust this if your output directory is different
-          cname: ${{ secrets.CNAME }}  # Optional: if you have a custom domain
+          publish_dir: ./_site
+          cname: ${{ secrets.CNAME }}
+          enable_jekyll: true
 
       # Add timestamp.json to build artifact
       - name: Add timestamp to build artifact
