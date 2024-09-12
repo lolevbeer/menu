@@ -11,6 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.1
 
+      # Set up Ruby
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'  # Specify the Ruby version you need
+          bundler-cache: true   # Automatically cache gems
+
       # Use GitHub Actions' cache to cache dependencies on servers
       - uses: actions/cache@v3.3.2
         with:
@@ -22,6 +29,11 @@ jobs:
       # Create timestamp.json file
       - name: Create timestamp file
         run: echo "{\"timestamp\":\"$(date +%s)\"}" > timestamp.json
+
+      # Build your Jekyll site
+      - name: Build Jekyll site
+        run: |
+          bundle exec jekyll build
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
