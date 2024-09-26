@@ -42,7 +42,8 @@ new Vue({
         let timestamp = data.timestamp;
         let lastRefresh = localStorage.getItem('lastRefresh');
         if (timestamp != lastRefresh) {
-          location.reload()
+          // Instead of reloading the page, refresh the Vue data
+          await this.loadData(id, tab); // Ensure you have access to id and tab
           localStorage.setItem('lastRefresh', timestamp);
         }
       } catch (error) {
