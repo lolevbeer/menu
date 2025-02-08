@@ -50,18 +50,18 @@
             <span v-if="item.singleCanAvailable == 'TRUE'" class="beer-glass">
               <img v-if="item.glass" :src="'https://lolev.beer/assets/beer/' + item.variant + '.webp'" />
               <span v-if="item.price" class="price">
-                ${ '$' + (Number(item.price) + 1) }
+                ${ Number(item.price) + 1 }
               </span>
             </span>
             <span v-else class="beer-glass">
               <img v-if="item.glass" :src="'/assets/images/' + item.glass + '.svg'" />
               <span v-if="item.price" class="price">
-                ${ '$' + item.price }
+                ${ item.price }
               </span>
             </span>
             <span v-if="item.cansAvailable == 'TRUE'" class="beer-can">
               <img :src="'https://lolev.beer/assets/beer/' + item.variant + '.webp'" />
-              ${ '$' + item.cans }
+              ${ item.cans }
             </span>
             <span v-else class="price-none">
             </span>
