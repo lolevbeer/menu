@@ -28,10 +28,7 @@
         <h3>${ item.type } <span class="percent-abv">${ item.abv }</span></h3>
         <p class="prices">
           <span>
-            <b>Single:</b> <span class="price-value">${ item.cansSingle }</span>
-          </span>
-          <span>
-            <b>4 Pack:</b> <span class="price-value">${ item.fourPack }</span>
+            <b>4 Pack</b> <span class="price-value">${ item.fourPack }</span>
           </span>
         </p>
         <p v-if="item.cansAvailable == 'FALSE'" class="sold-out">SOLD AHT</p>
