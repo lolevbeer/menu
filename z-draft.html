@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <title>Beer - Today's Menu</title>
+    <title>The List - Today's Menu</title>
     <!-- connect to domain of font files -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- optionally increase loading priority -->
@@ -17,14 +17,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.5.2/randomColor.js" defer=""></script>
     <script src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
   </head>
-  <body class=" ">
+  <body class="kiosk ">
     <header>
       <img class="logo" src="https://lolev.beer/images/logo.svg"/>
-      <h1>Beer</h1>
+      <h1>The List</h1>
     </header>
-    <section data-id="" data-tab="" v-cloak id="app">
+    <section data-id="1HF_N_0eHafxTnZfmQ-g4oMbZt1Vjjyq476bNEvLZi0I" data-tab="Beer Menu" v-cloak id="app">
       <article class="items" :data-tap="item.tap" v-if="item.name && item.outOfStock != 'TRUE'" v-for="item in items" :class="{'shockwave': item.attention == 'TRUE'}">
         <span class="beer-name">
+          
+            <span v-if="item.tap" class="tap">${ item.tap }</span>
+            <span v-else class="tap-none"></span>
           
           <a v-if="item.name" target="_blank" :href="'https://lolev.beer/beer/' + item.variant">
             ${ item.name }
@@ -68,6 +71,6 @@
     </section>
   </body>
   
-    <script src="/assets/js/render-beer.js?v=1745528459" defer=""></script>
+    <script src="/assets/js/render-beer-persist.js?v=1745528459" defer=""></script>
   
 </html>

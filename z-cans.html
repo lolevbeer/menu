@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <title>4 Packs To Go - Today's Menu</title>
+    <title>Cans To Go - Today's Menu</title>
     <!-- connect to domain of font files -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- optionally increase loading priority -->
@@ -20,9 +20,9 @@
   <body class="kiosk display ">
     <header>
       <img class="logo" src="https://lolev.beer/images/logo.svg"/>
-      <h1>4 Packs To Go</h1>
+      <h1>Cans To Go</h1>
     </header>
-    <section data-id="1ByxgaootC5I5WL4J2L94T9yJLBCNODzOCUQYIi1HEPA" data-tab="Beer" v-cloak id="app">
+    <section data-id="15rmJNWesBLss2EmciUaT4OOOwmytke6h3BFgXQN0MOU" data-tab="Beer" v-cloak id="app">
       <article class="items" :data-tap="item.tap" v-if="item.name && item.outOfStock != 'TRUE'" v-for="item in items" :class="{'shockwave': item.attention == 'TRUE'}">
         <h2>${ item.name }</h2>
         <h3>${ item.type } <span class="percent-abv">${ item.abv }</span></h3>
