@@ -200,3 +200,12 @@ $animation-duration: 60s
   font-weight: normal
   &::after
     content: '%'
+
+@media screen and (max-width: 1281px)
+  body
+    transform: scale(0.67) translateY(145px) // Adjust the scale factor as needed
+    transform-origin: top left // Ensures scaling starts from the top left corner
+    width: 150% // Adjust width to prevent clipping
+    // overflow-x: hidden // Prevents horizontal scroll
+  .display header
+    transform: translateY(-145px)

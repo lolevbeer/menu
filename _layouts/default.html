@@ -71,8 +71,8 @@
     </section>
   </body>
   {% if page.refresh %}
-    <script src="/assets/js/render-beer-persist.js" defer=""></script>
+    <script src="/assets/js/render-beer-persist.js?v={{ site.time | date: '%s' }}" defer=""></script>
   {% else %}
-    <script src="/assets/js/render-beer.js" defer=""></script>
+    <script src="/assets/js/render-beer.js?v={{ site.time | date: '%s' }}" defer=""></script>
   {% endif %}
 </html>
