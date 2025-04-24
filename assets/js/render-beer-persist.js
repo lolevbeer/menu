@@ -14,12 +14,16 @@ new Vue({
   },
   methods: {
     async loadData(id, tab) {
+      console.log('Loading data with ID:', id, 'and tab:', tab);
       let ak = 'AIzaSyD4yUvvzDDtsAa4MzlO0jrSMLdlVyQqOhY';
       let addr = `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${tab}?key=${ak}`;
+      console.log('Fetching from URL:', addr);
       try {
         let response = await axios.get(addr);
+        console.log('Response received:', response.data);
         let parsedData = response.data.values; // 'values' contains the data
         let headers = parsedData[0];
+        console.log('Headers:', headers);
         let items = parsedData.slice(1).map(row => {
           let item = {};
           row.forEach((value, index) => {
@@ -27,10 +31,12 @@ new Vue({
           });
           return item;
         });
+        console.log('Processed items:', items);
         this.items = items;
         this.$nextTick(this.changeColors);
       } catch (error) {
-        console.log(error);
+        console.error('Error loading data:', error);
+        console.error('Error details:', error.response ? error.response.data : 'No response data');
       }
     },
     async refreshOnUpate() {
@@ -134,11 +140,16 @@ new Vue({
     }
   },
   mounted() {
+    const app = document.getElementById('app');
     const id = app.dataset.id;
     const tab = app.dataset.tab;
+    console.log('Vue mounted. Element data attributes:', app.dataset);
+    console.log('Initial ID:', id);
+    console.log('Initial tab:', tab);
 
     // Make the mounted method async
     (async () => {
+      console.log('Starting initial data load');
       // Await the completion of loadData before executing addCounts
       await this.loadData(id, tab);
       this.addCounts();
