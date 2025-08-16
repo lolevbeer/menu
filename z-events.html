@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Events - Today's Menu</title>
+    <!-- connect to domain of font files -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- optionally increase loading priority -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&amp;family=Poppins:wght@300;500;600&amp;display=fallback">
+    <!-- async CSS -->
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&amp;family=Poppins:wght@300;500;600&amp;display=fallback">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.5.2/randomColor.js" defer=""></script>
+    <script src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+  </head>
+  <body class="kiosk no-price">
+    <header>
+      <img class="logo" src="https://lolev.beer/images/logo.svg"/>
+      <h1>Events</h1>
+    </header>
+    <section data-id="events-combined" data-tab="Events" v-cloak id="app">
+      
+      <!-- Events display -->
+      <article class="items events-item" v-for="item in items" v-if="isUpcomingEvent(item.date)">
+        <span class="event-date">${ formatDate(item.date) }</span>
+        <span class="event-separator">//</span>
+        <span class="event-vendor">
+          <a v-if="item.site" :href="item.site" target="_blank">${ item.vendor }</a>
+          <span v-else>${ item.vendor }</span>
+        </span>
+        <span v-if="item.isFood" class="event-time">${ item.time }</span>
+      </article>
+      
+    </section>
+  </body>
+  
+    <script src="/assets/js/render-events.js?v=1755379729" defer=""></script>
+  
+</html>

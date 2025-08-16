@@ -23,6 +23,8 @@
       <h1>The List</h1>
     </header>
     <section data-id="1HF_N_0eHafxTnZfmQ-g4oMbZt1Vjjyq476bNEvLZi0I" data-tab="Beer Menu" v-cloak id="app">
+      
+      <!-- Beer display -->
       <article class="items" :data-tap="item.tap" v-if="item.name && item.outOfStock != 'TRUE'" v-for="item in items" :class="{'shockwave': item.attention == 'TRUE'}">
         <span class="beer-name">
           
@@ -44,7 +46,7 @@
           </span>
         </div>
         <span v-if="item.abv" class="percent">${ item.abv + '%'}</span>
-        <span v-if="item.description" class="description">${ item.description }</span>
+        <span v-if="item.hops || item.description" class="description">${ item.hops || item.description }</span>
         <span class="beer-info">
           
             <span v-if="item.singleCanAvailable == 'TRUE'" class="beer-glass">
@@ -68,9 +70,10 @@
           
         </span>
       </article>
+      
     </section>
   </body>
   
-    <script src="/assets/js/render-beer-persist.js?v=1745871830" defer=""></script>
+    <script src="/assets/js/render-beer-persist.js?v=1755379729" defer=""></script>
   
 </html>
