@@ -23,6 +23,19 @@
       <h1>{{ page.title }}</h1>
     </header>
     <section data-id="{{ page.id }}" data-tab="{{ page.tab }}" v-cloak id="app">
+      {% if page.tab == 'Events' %}
+      <!-- Events display -->
+      <article class="items events-item" v-for="item in items" v-if="isUpcomingEvent(item.date)">
+        <span class="event-date">${ formatDate(item.date) }</span>
+        <span class="event-separator">//</span>
+        <span class="event-vendor">
+          <a v-if="item.site" :href="item.site" target="_blank">${ item.vendor }</a>
+          <span v-else>${ item.vendor }</span>
+        </span>
+        <span v-if="item.isFood" class="event-time">${ item.time }</span>
+      </article>
+      {% else %}
+      <!-- Beer display -->
       <article class="items" :data-tap="item.tap" v-if="item.name && item.outOfStock != 'TRUE'" v-for="item in items" :class="{'shockwave': item.attention == 'TRUE'}">
         <span class="beer-name">
           {% if page.class == "kiosk" %}
@@ -44,7 +57,7 @@
           </span>
         </div>
         <span v-if="item.abv" class="percent">${ item.abv + '%'}</span>
-        <span v-if="item.description" class="description">${ item.description }</span>
+        <span v-if="item.hops || item.description" class="description">${ item.hops || item.description }</span>
         <span class="beer-info">
           {% if page.price %}
             <span v-if="item.singleCanAvailable == 'TRUE'" class="beer-glass">
@@ -68,9 +81,12 @@
           {% endif %}
         </span>
       </article>
+      {% endif %}
     </section>
   </body>
-  {% if page.refresh %}
+  {% if page.script %}
+    <script src="/assets/js/{{ page.script }}.js?v={{ site.time | date: '%s' }}" defer=""></script>
+  {% elsif page.refresh %}
     <script src="/assets/js/render-beer-persist.js?v={{ site.time | date: '%s' }}" defer=""></script>
   {% else %}
     <script src="/assets/js/render-beer.js?v={{ site.time | date: '%s' }}" defer=""></script>

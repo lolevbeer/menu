@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <!-- connect to domain of font files -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- optionally increase loading priority -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&amp;family=Poppins:wght@300;500;600&amp;display=fallback">
+    <!-- async CSS -->
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&amp;family=Poppins:wght@300;500;600&amp;display=fallback">
+    <link rel="stylesheet" href="{{ "assets/css/main.css" }}">
+    <link rel="stylesheet" href="{{ "assets/css/display.css" }}">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body class="{{ page.class }}">
+    <header>
+      <img class="logo" src="https://lolev.beer/images/logo.svg"/>
+      <h1>{{ page.title }}</h1>
+    </header>
+    <section data-id="{{ page.id }}" data-tab="{{ page.tab }}" v-cloak id="app">
+      <article class="items" v-for="event in upcomingEvents" :key="event.date + event.vendor">
+        <span class="event-date">
+          ${ formatDate(event.date) }
+        </span>
+        <span class="event-vendor">
+          <a v-if="event.site" :href="event.site" target="_blank">
+            ${ event.vendor }
+          </a>
+          <span v-else>${ event.vendor }</span>
+        </span>
+        <span class="event-time">${ event.time }</span>
+      </article>
+    </section>
+  </body>
+  <script>
+    new Vue({
+      delimiters: ['${', '}'],
+      el: '#app',
+      data: {
+        items: [],
+        upcomingEvents: []
+      },
+      methods: {
+        async loadData(id, tab) {
+          console.log('Loading events data with ID:', id, 'and tab:', tab);
+          let ak = 'AIzaSyD4yUvvzDDtsAa4MzlO0jrSMLdlVyQqOhY';
+          let addr = `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${tab}?key=${ak}`;
+          console.log('Fetching from URL:', addr);
+          try {
+            let response = await axios.get(addr);
+            console.log('Response received:', response.data);
+            let parsedData = response.data.values;
+            let headers = parsedData[0];
+            console.log('Headers:', headers);
+            let items = parsedData.slice(1).map(row => {
+              let item = {};
+              row.forEach((value, index) => {
+                item[headers[index]] = value;
+              });
+              return item;
+            });
+            console.log('Processed items:', items);
+            this.items = items;
+            this.filterUpcomingEvents();
+          } catch (error) {
+            console.error('Error loading data:', error);
+            console.error('Error details:', error.response ? error.response.data : 'No response data');
+          }
+        },
+        filterUpcomingEvents() {
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+          
+          this.upcomingEvents = this.items
+            .filter(event => {
+              if (!event.date || !event.vendor) return false;
+              const eventDate = new Date(event.date);
+              return eventDate >= today;
+            })
+            .sort((a, b) => new Date(a.date) - new Date(b.date));
+          
+          console.log('Filtered upcoming events:', this.upcomingEvents);
+        },
+        formatDate(dateString) {
+          const date = new Date(dateString);
+          const options = { year: 'numeric', month: 'long', day: 'numeric' };
+          return date.toLocaleDateString('en-US', options);
+        },
+        async refreshOnUpdate() {
+          try {
+            let rLk = Math.random().toString(36).slice(2, 4);
+            let rLv = Math.random().toString(36).slice(2, 4);
+            const response = await fetch(`/timestamp.json?${rLk}=${rLv}`);
+            const data = await response.json();
+            let timestamp = data.timestamp;
+            let lastRefresh = localStorage.getItem('lastRefreshEvents');
+            if (timestamp != lastRefresh) {
+              const app = document.getElementById('app');
+              const id = app.dataset.id;
+              const tab = app.dataset.tab;
+              await this.loadData(id, tab);
+              localStorage.setItem('lastRefreshEvents', timestamp);
+            }
+          } catch (error) {
+            console.log(error)
+          }
+        }
+      },
+      mounted() {
+        const app = document.getElementById('app');
+        const id = app.dataset.id;
+        const tab = app.dataset.tab;
+        console.log('Vue mounted. Element data attributes:', app.dataset);
+        console.log('Initial ID:', id);
+        console.log('Initial tab:', tab);
+
+        (async () => {
+          console.log('Starting initial data load');
+          await this.loadData(id, tab);
+
+          {% if page.refresh %}
+          setInterval(() => {
+            this.refreshOnUpdate();
+          }, 10000);
+
+          setInterval(async () => {
+            await this.loadData(id, tab);
+            console.log('Events data updated from Google Sheets');
+          }, 30000);
+          {% endif %}
+        })();
+      }
+    });
+  </script>
+</html>
