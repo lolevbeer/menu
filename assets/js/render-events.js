@@ -15,7 +15,9 @@ new Vue({
     },
     isUpcomingEvent(dateString) {
       if (!dateString) return false;
-      const eventDate = new Date(dateString);
+      // Parse date as local time, not UTC
+      const [year, month, day] = dateString.split('-');
+      const eventDate = new Date(year, month - 1, day);
       eventDate.setHours(0, 0, 0, 0);
       const today = new Date();
       today.setHours(0, 0, 0, 0);
@@ -23,7 +25,9 @@ new Vue({
     },
     formatDate(dateString) {
       if (!dateString) return '';
-      const date = new Date(dateString);
+      // Parse date as local time, not UTC
+      const [year, month, day] = dateString.split('-');
+      const date = new Date(year, month - 1, day);
       const options = { month: 'short', day: 'numeric' };
       return date.toLocaleDateString('en-US', options);
     },
