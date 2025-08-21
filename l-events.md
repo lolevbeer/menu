@@ -8,6 +8,6 @@ id: 'events-combined'
 tab: 'Events'
 qr: False
 script: render-events
-eventSheetId: '1i-9OpihaBU4QSoVjZrLPpBW_Xjn7cGTQ6IRBwp8mDjk'
-foodSheetId: '1QXWoyMGc9Q7V01ZLpFJn1mE-HXXaOpwFy5Ss5l3z7Pw'
+eventSheetId: '1C4HQm7C-OYA_ZKQWPXrBTrBv88WSONOxB_xVPz1n1NY'
+foodSheetId: '1mgDsLxnRR4F99Iljlh95vjs43wZcznlF9Txffwl-cao'
 ---

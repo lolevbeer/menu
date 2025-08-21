@@ -35,20 +35,39 @@ new Vue({
       console.log('Loading events from multiple sources');
       let ak = 'AIzaSyD4yUvvzDDtsAa4MzlO0jrSMLdlVyQqOhY';
       
-      // Events sheet
-      let eventSheetId = '1i-9OpihaBU4QSoVjZrLPpBW_Xjn7cGTQ6IRBwp8mDjk';
-      let eventAddr = `https://sheets.googleapis.com/v4/spreadsheets/${eventSheetId}/values/Events?key=${ak}`;
+      // Get sheet IDs from data attributes
+      const app = document.getElementById('app');
+      let eventSheetId = app.dataset.eventSheetId || '1i-9OpihaBU4QSoVjZrLPpBW_Xjn7cGTQ6IRBwp8mDjk';
+      let foodSheetId = app.dataset.foodSheetId || '1QXWoyMGc9Q7V01ZLpFJn1mE-HXXaOpwFy5Ss5l3z7Pw';
       
-      // Food vendors sheet
-      let foodSheetId = '1QXWoyMGc9Q7V01ZLpFJn1mE-HXXaOpwFy5Ss5l3z7Pw';
-      let foodAddr = `https://sheets.googleapis.com/v4/spreadsheets/${foodSheetId}/values/Food?key=${ak}`;
+      console.log('Using Event Sheet ID:', eventSheetId);
+      console.log('Using Food Sheet ID:', foodSheetId);
+      
+      // Build URLs only if we have valid sheet IDs
+      let eventAddr = null;
+      let foodAddr = null;
+      
+      if (eventSheetId && eventSheetId !== 'undefined') {
+        eventAddr = `https://sheets.googleapis.com/v4/spreadsheets/${eventSheetId}/values/Events?key=${ak}`;
+        console.log('Event URL:', eventAddr);
+      }
+      
+      if (foodSheetId && foodSheetId !== 'undefined') {
+        foodAddr = `https://sheets.googleapis.com/v4/spreadsheets/${foodSheetId}/values/Food?key=${ak}`;
+        console.log('Food URL:', foodAddr);
+      }
       
       try {
+        // Prepare promises array
+        let promises = [];
+        if (eventAddr) promises.push(axios.get(eventAddr));
+        else promises.push(Promise.reject('No event sheet ID'));
+        
+        if (foodAddr) promises.push(axios.get(foodAddr));
+        else promises.push(Promise.reject('No food sheet ID'));
+        
         // Fetch both sheets in parallel
-        let [eventsResponse, foodResponse] = await Promise.allSettled([
-          axios.get(eventAddr),
-          axios.get(foodAddr)
-        ]);
+        let [eventsResponse, foodResponse] = await Promise.allSettled(promises);
         
         let allItems = [];
         
@@ -80,7 +99,7 @@ new Vue({
             });
             // Mark as food vendor and add suffix
             if (item.vendor) {
-              item.vendor = item.vendor + ' - Food';
+              item.vendor = item.vendor + ' • Food';
               item.isFood = true;
             }
             return item;
