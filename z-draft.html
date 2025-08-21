@@ -22,7 +22,7 @@
       <img class="logo" src="https://lolev.beer/images/logo.svg"/>
       <h1>The List</h1>
     </header>
-    <section data-id="1HF_N_0eHafxTnZfmQ-g4oMbZt1Vjjyq476bNEvLZi0I" data-tab="Beer Menu" v-cloak id="app">
+    <section data-id="1HF_N_0eHafxTnZfmQ-g4oMbZt1Vjjyq476bNEvLZi0I" data-tab="Beer Menu" data-event-sheet-id="" data-food-sheet-id="" v-cloak id="app">
       
       <!-- Beer display -->
       <article class="items" :data-tap="item.tap" v-if="item.name && item.outOfStock != 'TRUE'" v-for="item in items" :class="{'shockwave': item.attention == 'TRUE'}">
@@ -46,7 +46,11 @@
           </span>
         </div>
         <span v-if="item.abv" class="percent">${ item.abv + '%'}</span>
-        <span v-if="item.hops || item.description" class="description">${ item.hops || item.description }</span>
+        <span v-if="item.description || item.hops" class="description">
+          <span v-if="item.description">${ item.description }</span>
+          <span v-if="item.description && item.hops"> </span>
+          <span v-if="item.hops">Hops: ${ item.hops }</span>
+        </span>
         <span class="beer-info">
           
             <span v-if="item.singleCanAvailable == 'TRUE'" class="beer-glass">
@@ -74,6 +78,6 @@
     </section>
   </body>
   
-    <script src="/assets/js/render-beer-persist.js?v=1755566789" defer=""></script>
+    <script src="/assets/js/render-beer-persist.js?v=1755813006" defer=""></script>
   
 </html>
