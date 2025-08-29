@@ -28,7 +28,7 @@ new Vue({
       // Parse date as local time, not UTC
       const [year, month, day] = dateString.split('-');
       const date = new Date(year, month - 1, day);
-      const options = { month: 'short', day: 'numeric' };
+      const options = { weekday: 'long', month: 'short', day: 'numeric' };
       return date.toLocaleDateString('en-US', options);
     },
     async loadEventsData() {
