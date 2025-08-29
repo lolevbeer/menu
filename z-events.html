@@ -26,18 +26,20 @@
       
       <!-- Events display -->
       <article class="items events-item" v-for="item in items" v-if="isUpcomingEvent(item.date)">
-        <span class="event-date">${ formatDate(item.date) }</span>
+        <span class="event-date">
+          ${ formatDate(item.date) }
+          <span v-if="item.time"> • ${ item.time }</span>
+        </span>
         <span class="event-separator">•</span>
         <span class="event-vendor">
           <a v-if="item.site" :href="item.site" target="_blank">${ item.vendor }</a>
           <span v-else>${ item.vendor }</span>
         </span>
-        <span v-if="item.isFood" class="event-time">${ item.time }</span>
       </article>
       
     </section>
   </body>
   
-    <script src="/assets/js/render-events.js?v=1756500058" defer=""></script>
+    <script src="/assets/js/render-events.js?v=1756501585" defer=""></script>
   
 </html>
