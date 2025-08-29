@@ -24,6 +24,7 @@
       <article class="items" v-for="event in upcomingEvents" :key="event.date + event.vendor">
         <span class="event-date">
           ${ formatDate(event.date) }
+          <span v-if="event.time"> • ${ event.time }</span>
         </span>
         <span class="event-vendor">
           <a v-if="event.site" :href="event.site" target="_blank">
@@ -31,7 +32,6 @@
           </a>
           <span v-else>${ event.vendor }</span>
         </span>
-        <span class="event-time">${ event.time }</span>
       </article>
     </section>
   </body>
