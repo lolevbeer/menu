@@ -14,6 +14,8 @@ new Vue({
     changeColors() {
       let items = document.querySelectorAll('article');
       console.log(items.length)
+      // Add class to body based on item count
+      document.body.classList.add(`count-${items.length}`);
       for (let i = 0; i < items.length; i++) {
         items[i].style.color = randomColor({ luminosity: "light" });
       }
