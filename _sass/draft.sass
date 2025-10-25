@@ -22,7 +22,7 @@ body
   bottom: 0
   transition: margin .25s ease
   position: relative
-  width: calc(100% - 1.5em)
+  width: calc(100% - 0.5em)
 
 *
   transition: all .01s ease
@@ -73,6 +73,8 @@ article
     p
       margin-left: 4em
       margin-right: 4em
+    .tap-none ~ p
+      margin-left: 0
 .oos
   text-decoration: line-through
   text-decoration-color: red
@@ -177,7 +179,6 @@ body:not(.kiosk)
 
 .tap-none
   display: inline-block
-  width: 70px
 
 .beer-can
   display: inline-block
@@ -236,5 +237,5 @@ img[src$=".webp"]
 
 #app.count-11,
 #app.count-12
-  margin: -30px .5em 5vh 1em !important
+  margin: -30px .5em 5vh !important
 
