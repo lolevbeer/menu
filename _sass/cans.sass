@@ -201,3 +201,15 @@ $animation-duration: 60s
   &::after
     content: '%'
 
+@media screen and (max-width: 961px)
+  body
+    transform: scale(0.67) translateY(145px)
+    transform-origin: top left
+    width: 150%
+  .display header
+    transform: translateY(-192px)
+  #app::after
+    bottom: -75px
+  h2
+    font-size: 1.7em
+
