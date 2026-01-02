@@ -123,8 +123,17 @@ new Vue({
     },
     adjustPosition(app) {
       let height = app.offsetHeight;
+      let offset = 75;
+      // Check if body has a scale transform applied
+      let bodyTransform = window.getComputedStyle(document.body).transform;
+      if (bodyTransform && bodyTransform !== 'none') {
+        let matrix = new DOMMatrix(bodyTransform);
+        let scale = matrix.a; // scaleX from transform matrix
+        height = height * scale;
+        offset = 0; // No offset needed when scaled
+      }
       let margin = (window.innerHeight - height) / 2;
-      app.style.marginTop = (75 + margin) + 'px';
+      app.style.marginTop = (offset + margin) + 'px';
     },
     changeColors() {
       let items = document.querySelectorAll('article');
