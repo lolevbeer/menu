@@ -8,13 +8,15 @@ body
   line-height: 1.7em
   margin: 0
 
-@media screen and (max-width: 961px)
+@media screen and (max-width: 960px)
   body
-    transform: scale(0.67)
+    transform: scale(0.5)
     transform-origin: top left
-    width: 150%
+    width: 200%
     overflow-x: hidden
     line-height: 1.6em
+  #app
+    width: calc(100% - .5em) !important
 
 
 #app
@@ -22,7 +24,7 @@ body
   bottom: 0
   transition: margin .25s ease
   position: relative
-  width: calc(100% - 0.5em)
+  width: calc(100% - 1.5em)
 
 *
   transition: all .01s ease

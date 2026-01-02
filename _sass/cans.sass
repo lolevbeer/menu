@@ -68,7 +68,7 @@ body
 .count-9,
 .count-10
   article
-    padding: 0px 17px
+    padding: 0px 16px
     img
       transform: scale(1) translateY(-35px)
 
@@ -80,7 +80,7 @@ body
 .count-7,
 .count-8
   article
-    padding: 0px 85px
+    padding: 0px 84px
     width: 310px
 .count-5,
 .count-6
@@ -201,11 +201,13 @@ $animation-duration: 60s
   &::after
     content: '%'
 
-@media screen and (max-width: 961px)
+@media screen and (max-width: 960px)
   body
-    transform: scale(0.67) translateY(145px)
+    transform: scale(0.5) translateY(145px)
     transform-origin: top left
-    width: 150%
+    width: 200%
+  #app
+    width: calc(100% - .5em) !important
   .display header
     transform: translateY(-192px)
   #app::after
