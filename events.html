@@ -1,16 +1,16 @@
-{% assign count = 0 %}
-{% assign currentDate = "now" | date: "%Y-%m-%d" | timezone: "America/New_York" %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Redirecting to Lolev Beer</title>
+    <meta http-equiv="refresh" content="0;url=https://lolev.beer/beer">
+    <link rel="canonical" href="https://lolev.beer/beer">
+    <meta name="robots" content="noindex, follow">
+    <script>location.replace("https://lolev.beer/beer");</script>
+  </head>
+  <body>
+    <p>This menu has moved to <a href="https://lolev.beer/beer">https://lolev.beer/beer</a>.</p>
+  </body>
+</html>
 
-{% assign count = 0 %}
-{% assign currentDate = "now" | date: "%Y-%m-%d" | timezone: "America/New_York" %}
-
-{% for event in site.data.events_csv_remote %}
-  {% assign eventDate = event.date | date: "%Y-%m-%d" | timezone: "America/New_York" %}
-  {% if event.site %}
-    {% if eventDate >= currentDate and count < 20 %}
-      {% include event.html %}
-      {% assign count = count %}
-    {% endif %}
-  {% endif %}
-{% endfor %}
-{% endfor %}

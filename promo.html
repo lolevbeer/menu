@@ -1,116 +1,16 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <!-- connect to domain of font files -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- optionally increase loading priority -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Poppins:wght@500;600&display=fallback">
-    <!-- async CSS -->
-    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Poppins:wght@500;600&display=fallback">
-    <style>
-      body {
-        font-family: 'Poppins', sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      header {
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        text-align: center;
-        position: relative;
-        margin-top: 150px;
-        z-index: 3;
-      }
-      header .slide {
-        background-position-y: -135px;
-        background-size: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-      }
-      header .slide.active {
-        opacity: 1;
-      }
-      h1 {
-        font-size: 6rem;
-        color: white;
-        letter-spacing: 3px;
-        margin: 0;
-        text-transform: uppercase;
-        text-shadow: 0 0 50px black;
-      }
-      h2 {
-        font-size: 2rem;
-        color: white;
-        margin-top: 20px;
-        text-shadow: 0 0 30px black;
-      }
-      h3 {
-        font-size: 1.5rem;
-        color: white;
-        margin-top: 10px;
-        text-shadow: 0 0 20px black;
-      }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Redirecting to Lolev Beer</title>
+    <meta http-equiv="refresh" content="0;url=https://lolev.beer/beer">
+    <link rel="canonical" href="https://lolev.beer/beer">
+    <meta name="robots" content="noindex, follow">
+    <script>location.replace("https://lolev.beer/beer");</script>
   </head>
-  <!-- add the faust image as a background image to the body but cover the whole background and blur it, but dont blur the children -->
-  <body style="margin: 0;" class=" no-price">
-    <style>
-      body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('/promo/faust.jpg');
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        filter: blur(10px) brightness(0.5);
-        z-index: -1; /* Ensure the pseudo-element is behind the content */
-      }
-      .slide {
-        position: absolute; /* Ensure it covers the header */
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('/promo/faust.jpg');
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat;
-        z-index: 0; /* Ensure the slide is above the blurred background */
-        opacity: 1; /* Ensure it is fully visible */
-      }
-    </style>
-    <header>
-      <h1>Faust</h1>
-      <h2>Imperial Plum Saison</h2>
-      <h3>$12 bottles</h3>
-    </header>
-    <div class="slide active"></div>
-    <script>
-      const slides = document.querySelectorAll('.slide');
-      let currentSlide = 0;
-
-      function showSlide() {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-      }
-
-      setInterval(showSlide, 30000);
-    </script>
+  <body>
+    <p>This menu has moved to <a href="https://lolev.beer/beer">https://lolev.beer/beer</a>.</p>
   </body>
 </html>
+
