@@ -1,36 +1,7 @@
-Simple kiosk display for menu
+# menu.lolev.beer
 
-Sample Entry Layout, adjust in _data/menu.yml to update.
+This GitHub Pages site now redirects every HTML page (including former kiosk/display URLs) to [https://lolev.beer/beer](https://lolev.beer/beer).
 
-```
-drafts:
-  hoppy:
-    - beer: 'ONSITE #1'
-      type: IPA
-      description: 12oz
-      abv: 5.4%
-    - beer: 'ONSITE #2'
-      type: Blonde
-      description: 12oz
-      abv: 4.2%
-  traditional:
-    - beer: 'ONSITE #3'
-      type: Bavarian Lager
-      description: 12oz
-      abv: 4.5%
-    - beer: 'ONSITE #4'
-      type: Helles Lager
-      description: 12oz
-      abv: 4.2%
+GitHub Pages cannot emit a true HTTP `301` to another domain. Pages use an immediate meta refresh + `location.replace` plus a `canonical` link to the main site. For a hard HTTP 301, put Cloudflare (or similar) in front of `menu.lolev.beer`.
 
-to go:
-  '':
-    - beer: 'ONSITE #1'
-      price: $13
-    - beer: 'ONSITE #2'
-      price: $15
-    - beer: 'ONSITE #3'
-      price: $20
-```
-
-Runs on Jekyll, use `sudo bundle exec jekyll serve --livereload -P 4001 --livereload-port 35730` to view locally.
+Deploy: push to `master` → Actions builds Jekyll → publishes `gh-pages`.
